@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اختر لو تجرؤ</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8Z7P9R6FB5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-8Z7P9R6FB5");
+    </script>
+
+    <style>
+      body {
+        margin: 0;
+        font-family:
+          Segoe UI,
+          Tahoma;
+        background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+        padding: 20px;
+      }
+      .container {
+        max-width: 420px;
+        width: 100%;
+        background: #181818;
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+      }
+      h1 {
+        margin-bottom: 5px;
+      }
+      .badge {
+        font-size: 13px;
+        color: #bbb;
+        margin-bottom: 15px;
+      }
+      .question {
+        font-size: 22px;
+        margin: 20px 0;
+      }
+      button {
+        width: 100%;
+        padding: 15px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        color: white;
+        transition: 0.3s;
+      }
+      button:hover {
+        transform: scale(1.03);
+      }
+      .opt1 {
+        background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      }
+      .opt2 {
+        background: linear-gradient(45deg, #2193b0, #6dd5ed);
+      }
+      .hidden {
+        display: none;
+      }
+      .resultBox {
+        margin-top: 20px;
+        padding: 20px;
+        background: #222;
+        border-radius: 15px;
+      }
+      .shareBtn {
+        background: #9b59b6;
+      }
+      .nextBtn {
+        background: #2ecc71;
+      }
+      .lockBox {
+        background: #222;
+        padding: 20px;
+        border-radius: 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>اختر لو تجرؤ 🔥</h1>
+      <div class="badge">تحدي 10 أسئلة يوميًا</div>
+
+      <div id="gameArea">
+        <div class="question" id="question"></div>
+        <button class="opt1" id="btn1" onclick="vote(1)"></button>
+        <button class="opt2" id="btn2" onclick="vote(2)"></button>
+      </div>
+
+      <div id="analysisBox" class="resultBox hidden"></div>
+      <button id="shareBtn" class="shareBtn hidden" onclick="shareResult()">
+        مشاركة نتيجتي
+      </button>
+
+      <div id="lockBox" class="lockBox hidden"></div>
+    </div>
+
+    <script>
+      const MAX_DAILY = 10;
+
+      const questions = [
+        {
+          q: "ماذا تختار؟",
+          o1: "تخسر حب حياتك",
+          o2: "تخسر أعز أصدقائك",
+          type: "emotional",
+        },
+        {
+          q: "ماذا تختار؟",
+          o1: "تعرف متى تموت",
+          o2: "تموت فجأة",
+          type: "logical",
+        },
+        {
+          q: "ماذا تختار؟",
+          o1: "تعيش غني ومكروه",
+          o2: "فقير ومحبوب",
+          type: "emotional",
+        },
+        {
+          q: "ماذا تختار؟",
+          o1: "تضحي بشخص لتنقذ خمسة",
+          o2: "ترفض التضحية",
+          type: "brave",
+        },
+        {
+          q: "ماذا تختار؟",
+          o1: "تعيش بلا حب",
+          o2: "تعيش بلا مال",
+          type: "emotional",
+        },
+        {
+          q: "ماذا تختار؟",
+          o1: "تواجه حقيقة مؤلمة",
+          o2: "تعيش كذبة مريحة",
+          type: "logical",
+        },
+        {
+          q: "ماذا تختار؟",
+          o1: "تختار قلبك",
+          o2: "تختار عقلك",
+          type: "emotional",
+        },
+        {
+          q: "ماذا تختار؟",
+          o1: "تكون صادق دائمًا",
+          o2: "تكون سعيد دائمًا",
+          type: "brave",
+        },
+        {
+          q: "ماذا تختار؟",
+          o1: "تعيش للأبد",
+          o2: "تموت بسلام",
+          type: "logical",
+        },
+        {
+          q: "ماذا تختار؟",
+          o1: "تفقد ثقتك بالناس",
+          o2: "تفقد ثقتك بنفسك",
+          type: "emotional",
+        },
+      ];
+
+      let current = 0;
+      let score = { emotional: 0, logical: 0, brave: 0 };
+
+      const today = new Date().toDateString();
+      const savedDate = localStorage.getItem("challengeDate");
+
+      if (savedDate === today) {
+        lockGame();
+      } else {
+        startGame();
+      }
+
+      function startGame() {
+        localStorage.setItem("challengeDate", today);
+        showQuestion();
+      }
+
+      function showQuestion() {
+        if (current >= MAX_DAILY) {
+          showAnalysis();
+          return;
+        }
+        document.getElementById("question").innerText = questions[current].q;
+        document.getElementById("btn1").innerText = questions[current].o1;
+        document.getElementById("btn2").innerText = questions[current].o2;
+      }
+
+      function vote(choice) {
+        let type = questions[current].type;
+        score[type]++;
+        current++;
+        showQuestion();
+      }
+
+      function showAnalysis() {
+        document.getElementById("gameArea").classList.add("hidden");
+
+        let personality;
+        let maxType = Object.keys(score).reduce((a, b) =>
+          score[a] > score[b] ? a : b,
+        );
+
+        if (maxType === "emotional") {
+          personality =
+            "💖 أنت شخص عاطفي عميق\nقلبك هو دليلك في الحياة، لديك إحساس عالي بالناس وتحب بصدق.\nوجودك يعطي أمان ودفء لكل من حولك.";
+        }
+        if (maxType === "logical") {
+          personality =
+            "🧠 أنت شخص عقلاني حكيم\nتفكر قبل أن تختار، تحلل الأمور بهدوء، وتملك قدرة قوية على اتخاذ قرارات ناضجة.";
+        }
+        if (maxType === "brave") {
+          personality =
+            "🔥 أنت شخص جريء ومغامر\nلا تخاف القرارات الصعبة، مستعد تتحمل المسؤولية، عندك شجاعة داخلية نادرة.";
+        }
+
+        document.getElementById("analysisBox").innerText = personality;
+        document.getElementById("analysisBox").classList.remove("hidden");
+        document.getElementById("shareBtn").classList.remove("hidden");
+
+        localStorage.setItem("challengeDate", today);
+      }
+
+      function lockGame() {
+        document.getElementById("gameArea").classList.add("hidden");
+        document.getElementById("lockBox").classList.remove("hidden");
+        document.getElementById("lockBox").innerHTML =
+          "✅ خلصت تحدي اليوم!<br><br>ارجع بكرة لتجربة جديدة 🔥";
+      }
+
+      function shareResult() {
+        const link = window.location.href;
+        const text =
+          "🔥 جربت تحدي اختر لو تجرؤ!\n\nنتيجتي:\n" +
+          document.getElementById("analysisBox").innerText +
+          "\n\nجربه من هنا:\n" +
+          link;
+
+        if (navigator.share) {
+          navigator.share({ title: "اختر لو تجرؤ", text: text });
+        } else {
+          navigator.clipboard.writeText(text);
+          alert("تم نسخ النتيجة مع الرابط ✅");
+        }
+      }
+    </script>
+  </body>
+</html>
