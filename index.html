@@ -323,37 +323,37 @@
         font-size: 11px;
         color: #ccc;
       }
-      /* تنسيق قسم الإحصائيات */
+   /* قسم الإحصائيات - التصميم الداكن الجديد */
 .stats-section {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    flex-wrap: wrap;
     gap: 15px;
+    margin: 15px auto 30px auto;
+    padding: 0;
+    max-width: 500px; /* لتقليل العرض */
 }
+
 .stat-card {
     text-align: center;
-    background: white;
-    padding: 15px 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    min-width: 120px;
+    background: rgba(255, 255, 255, 0.05); /* لون شفاف داكن */
+    padding: 10px 15px; /* تصغير الحجم */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* إطار خفيف جداً */
+    min-width: 90px;
+    backdrop-filter: blur(5px); /* تأثير زجاجي جميل */
 }
+
 .stat-number {
-    font-size: 28px;
+    font-size: 22px; /* تصغير الخط */
     font-weight: bold;
-    color: #3498db; /* يمكنك تغيير اللون للون موقعك الأساسي */
-    margin-bottom: 5px;
+    color: #ff4757; /* لون أحمر/وردي يتماشى مع زر ابدأ الاختبار */
+    margin-bottom: 2px;
 }
+
 .stat-label {
-    font-size: 14px;
-    color: #666;
-    font-weight: bold;
+    font-size: 11px; /* تصغير النص */
+    color: #a4b0be; /* لون رمادي فاتح مريح للعين */
 }
 
       /* ========= SPECIALIZED TESTS SECTION ========= */
