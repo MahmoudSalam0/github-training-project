@@ -772,5 +772,34 @@
     }
 </script>
 <!-- نهاية قسم المشاركة -->
+    <!-- كود تسجيل إحصائيات المستخدم -->
+<script>
+    function recordTestCompletion() {
+        let total = parseInt(localStorage.getItem('realCompletedTests') || 0);
+        localStorage.setItem('realCompletedTests', total + 1);
+
+        let lastDate = localStorage.getItem('lastTestDate');
+        let today = new Date().toDateString();
+        let streak = parseInt(localStorage.getItem('realStreakDays') || 0);
+
+        if (lastDate !== today) { 
+            let yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+
+            if (lastDate === yesterday.toDateString()) {
+                streak++; 
+            } else {
+                streak = 1; 
+            }
+            localStorage.setItem('realStreakDays', streak);
+            localStorage.setItem('lastTestDate', today);
+        }
+    }
+
+    // تشغيل الكود عند فتح صفحة الاختبار
+    window.onload = function() {
+        recordTestCompletion();
+    };
+</script>
 </body>
 </html>
