@@ -1,0 +1,1108 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اختبار الثقة بالنفس | شخصيتك</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="اكتشف مستوى ثقتك بنفسك وتعرف على نقاط قوتك ومجالات التحسين - اختبار شامل ودقيق"
+    />
+    <meta
+      name="keywords"
+      content="اختبار الثقة بالنفس, قياس الثقة, تقدير الذات, تطوير الذات, اختبار نفسي"
+    />
+    <meta name="author" content="شخصيتك" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="اختبار الثقة بالنفس | شخصيتك" />
+    <meta
+      property="og:description"
+      content="اكتشف مستوى ثقتك بنفسك في اختبار شامل ودقيق"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://mahmoudsalam0.github.io/shahsiyatak/confidence-test.html"
+    />
+    <meta
+      property="og:image"
+      content="https://mahmoudsalam0.github.io/shahsiyatak/og-image.jpg"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="اختبار الثقة بالنفس" />
+    <meta
+      name="twitter:description"
+      content="اكتشف مستوى ثقتك بنفسك وتعرف على نقاط قوتك"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💪</text></svg>"
+    />
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8Z7P9R6FB5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8Z7P9R6FB5");
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        min-height: 100vh;
+        padding: 20px;
+        color: #333;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+        animation: fadeInDown 0.8s ease;
+      }
+
+      .header h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .header p {
+        font-size: 1.1em;
+        opacity: 0.95;
+      }
+
+      .home-btn {
+        display: inline-block;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .home-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .test-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 0.8s ease;
+      }
+
+      .intro-section {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .intro-section h2 {
+        color: #f5576c;
+        margin-bottom: 15px;
+        font-size: 1.8em;
+      }
+
+      .intro-icon {
+        font-size: 4em;
+        margin: 20px 0;
+      }
+
+      .confidence-areas {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 25px 0;
+      }
+
+      .area-badge {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 15px;
+        border-radius: 12px;
+        text-align: center;
+        font-weight: 500;
+        transition: transform 0.3s ease;
+      }
+
+      .area-badge:hover {
+        transform: translateY(-5px);
+      }
+
+      .question-container {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .question-container.active {
+        display: block;
+      }
+
+      .progress-bar {
+        background: #e0e0e0;
+        height: 8px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+        transition: width 0.3s ease;
+        border-radius: 10px;
+      }
+
+      .question-number {
+        color: #f5576c;
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 0.9em;
+      }
+
+      .question-text {
+        font-size: 1.3em;
+        margin-bottom: 25px;
+        color: #333;
+        font-weight: 500;
+        line-height: 1.6;
+      }
+
+      .answers {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .answer-btn {
+        padding: 18px 25px;
+        border: 2px solid #e0e0e0;
+        background: white;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1em;
+        text-align: right;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .answer-btn:hover {
+        border-color: #f5576c;
+        background: #fff5f7;
+        transform: translateX(-5px);
+      }
+
+      .answer-btn.selected {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        border-color: #f5576c;
+      }
+
+      .start-btn,
+      .next-btn {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        font-size: 1.1em;
+        border-radius: 30px;
+        cursor: pointer;
+        display: block;
+        margin: 30px auto;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(245, 87, 108, 0.4);
+      }
+
+      .start-btn:hover,
+      .next-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(245, 87, 108, 0.5);
+      }
+
+      .next-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .results {
+        display: none;
+        animation: fadeIn 0.8s ease;
+      }
+
+      .results.active {
+        display: block;
+      }
+
+      .result-header {
+        text-align: center;
+        margin-bottom: 35px;
+      }
+
+      .result-header h2 {
+        color: #f5576c;
+        font-size: 2.2em;
+        margin-bottom: 15px;
+      }
+
+      .confidence-level {
+        text-align: center;
+        padding: 30px;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        border-radius: 20px;
+        margin-bottom: 30px;
+      }
+
+      .confidence-level h3 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      .confidence-level .score {
+        font-size: 3em;
+        font-weight: bold;
+        margin: 15px 0;
+      }
+
+      .confidence-meter {
+        background: rgba(255, 255, 255, 0.3);
+        height: 30px;
+        border-radius: 15px;
+        overflow: hidden;
+        margin: 20px 0;
+      }
+
+      .confidence-meter-fill {
+        height: 100%;
+        background: white;
+        border-radius: 15px;
+        transition: width 1s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: #f5576c;
+      }
+
+      .dimension-result {
+        margin-bottom: 25px;
+        padding: 20px;
+        background: #fff5f7;
+        border-radius: 15px;
+        border-right: 5px solid #f5576c;
+      }
+
+      .dimension-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .dimension-name {
+        font-size: 1.1em;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .dimension-score {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #f5576c;
+      }
+
+      .dimension-bar-container {
+        background: #e0e0e0;
+        height: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+
+      .dimension-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+        border-radius: 10px;
+        transition: width 1s ease;
+      }
+
+      .analysis-section {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 25px 0;
+      }
+
+      .analysis-section h3 {
+        color: #f5576c;
+        margin-bottom: 15px;
+        font-size: 1.4em;
+      }
+
+      .analysis-section p {
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 15px;
+      }
+
+      .recommendations {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 25px 0;
+      }
+
+      .recommendations h3 {
+        font-size: 1.4em;
+        margin-bottom: 15px;
+      }
+
+      .recommendations ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .recommendations li {
+        padding: 10px 0;
+        padding-right: 25px;
+        position: relative;
+      }
+
+      .recommendations li:before {
+        content: "✓";
+        position: absolute;
+        right: 0;
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .action-btn {
+        padding: 12px 30px;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .share-btn {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+      }
+
+      .retry-btn {
+        background: white;
+        color: #f5576c;
+        border: 2px solid #f5576c;
+      }
+
+      .home-result-btn {
+        background: #48bb78;
+        color: white;
+      }
+
+      .action-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 1.8em;
+        }
+
+        .test-card {
+          padding: 25px;
+        }
+
+        .question-text {
+          font-size: 1.1em;
+        }
+
+        .confidence-areas {
+          grid-template-columns: 1fr;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+        }
+
+        .action-btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="index.html" class="home-btn">← العودة للرئيسية</a>
+
+      <div class="header">
+        <h1>💪 اختبار الثقة بالنفس</h1>
+        <p>اكتشف مستوى ثقتك بنفسك وحدد نقاط قوتك</p>
+      </div>
+
+      <div class="test-card">
+        <!-- Intro Section -->
+        <div id="introSection" class="intro-section">
+          <div class="intro-icon">💪</div>
+          <h2>قيّم ثقتك بنفسك</h2>
+          <p style="color: #666; line-height: 1.8; margin: 20px 0">
+            هذا الاختبار يساعدك على تقييم مستوى ثقتك بنفسك عبر 4 أبعاد رئيسية.
+            ستحصل على تحليل شامل ونصائح عملية لتعزيز ثقتك وتطوير ذاتك.
+          </p>
+
+          <div class="confidence-areas">
+            <div class="area-badge">🎯 الثقة الذاتية</div>
+            <div class="area-badge">🤝 الثقة الاجتماعية</div>
+            <div class="area-badge">💼 الثقة المهنية</div>
+            <div class="area-badge">😌 تقدير الذات</div>
+          </div>
+
+          <p style="color: #999; font-size: 0.9em">
+            ⏱️ المدة: 5 دقائق | 📝 عدد الأسئلة: 20 سؤال
+          </p>
+
+          <button class="start-btn" onclick="startTest()">
+            ابدأ الاختبار الآن
+          </button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div id="progressSection" style="display: none">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <!-- Questions Container -->
+        <div id="questionsContainer"></div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="results">
+          <div class="result-header">
+            <h2>🎯 نتيجة اختبار الثقة بالنفس</h2>
+          </div>
+
+          <div class="confidence-level" id="confidenceLevel"></div>
+
+          <div id="dimensionsResults"></div>
+
+          <div class="analysis-section" id="analysisSection"></div>
+
+          <div class="recommendations" id="recommendationsSection"></div>
+
+          <div class="action-buttons">
+            <button class="action-btn share-btn" onclick="shareResults()">
+              📤 مشاركة النتيجة
+            </button>
+            <button class="action-btn retry-btn" onclick="retryTest()">
+              🔄 إعادة الاختبار
+            </button>
+            <a href="index.html" class="action-btn home-result-btn"
+              >🏠 العودة للرئيسية</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confetti Script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+      // Confidence Test Questions (20 Questions - 5 per dimension)
+      const questions = [
+        // Self-Confidence (الثقة الذاتية)
+        {
+          id: 1,
+          text: "أشعر بالراحة عند اتخاذ قرارات مهمة بمفردي",
+          dimension: "self",
+          reverse: false,
+        },
+        {
+          id: 2,
+          text: "أثق في قدراتي على تحقيق أهدافي",
+          dimension: "self",
+          reverse: false,
+        },
+        {
+          id: 3,
+          text: "أشك كثيراً في قراراتي بعد اتخاذها",
+          dimension: "self",
+          reverse: true,
+        },
+        {
+          id: 4,
+          text: "أشعر بالقدرة على التعامل مع المشاكل التي تواجهني",
+          dimension: "self",
+          reverse: false,
+        },
+        {
+          id: 5,
+          text: "أؤمن بأنني أستحق النجاح",
+          dimension: "self",
+          reverse: false,
+        },
+
+        // Social Confidence (الثقة الاجتماعية)
+        {
+          id: 6,
+          text: "أشعر بالارتياح عند التحدث أمام مجموعة من الناس",
+          dimension: "social",
+          reverse: false,
+        },
+        {
+          id: 7,
+          text: "أخشى أن يحكم الآخرون علي بشكل سلبي",
+          dimension: "social",
+          reverse: true,
+        },
+        {
+          id: 8,
+          text: "أستطيع التعبير عن رأيي بوضوح في المناقشات",
+          dimension: "social",
+          reverse: false,
+        },
+        {
+          id: 9,
+          text: "أجد صعوبة في بناء علاقات جديدة",
+          dimension: "social",
+          reverse: true,
+        },
+        {
+          id: 10,
+          text: "أشعر بالثقة عند التواصل مع أشخاص جدد",
+          dimension: "social",
+          reverse: false,
+        },
+
+        // Professional Confidence (الثقة المهنية)
+        {
+          id: 11,
+          text: "أثق في مهاراتي وخبراتي المهنية",
+          dimension: "professional",
+          reverse: false,
+        },
+        {
+          id: 12,
+          text: "أخشى تولي مسؤوليات جديدة في العمل",
+          dimension: "professional",
+          reverse: true,
+        },
+        {
+          id: 13,
+          text: "أشعر بالكفاءة في أداء مهامي الوظيفية",
+          dimension: "professional",
+          reverse: false,
+        },
+        {
+          id: 14,
+          text: "أتردد في طرح أفكاري في بيئة العمل",
+          dimension: "professional",
+          reverse: true,
+        },
+        {
+          id: 15,
+          text: "أرى نفسي قادراً على تحقيق تقدم مهني ملحوظ",
+          dimension: "professional",
+          reverse: false,
+        },
+
+        // Self-Esteem (تقدير الذات)
+        {
+          id: 16,
+          text: "أقدّر نفسي وإنجازاتي بشكل إيجابي",
+          dimension: "esteem",
+          reverse: false,
+        },
+        {
+          id: 17,
+          text: "أقارن نفسي بالآخرين بشكل مستمر",
+          dimension: "esteem",
+          reverse: true,
+        },
+        {
+          id: 18,
+          text: "أشعر بالرضا عن شخصيتي وصفاتي",
+          dimension: "esteem",
+          reverse: false,
+        },
+        {
+          id: 19,
+          text: "أنتقد نفسي بشدة عند ارتكاب الأخطاء",
+          dimension: "esteem",
+          reverse: true,
+        },
+        {
+          id: 20,
+          text: "أرى نفسي شخصاً ذا قيمة ومؤثراً",
+          dimension: "esteem",
+          reverse: false,
+        },
+      ];
+
+      const answerOptions = [
+        { text: "لا أوافق بشدة", value: 1 },
+        { text: "لا أوافق", value: 2 },
+        { text: "محايد", value: 3 },
+        { text: "أوافق", value: 4 },
+        { text: "أوافق بشدة", value: 5 },
+      ];
+
+      let currentQuestion = 0;
+      let answers = {};
+      let scores = {
+        self: 0,
+        social: 0,
+        professional: 0,
+        esteem: 0,
+      };
+
+      const dimensionNames = {
+        self: "الثقة الذاتية",
+        social: "الثقة الاجتماعية",
+        professional: "الثقة المهنية",
+        esteem: "تقدير الذات",
+      };
+
+      const confidenceLevels = {
+        high: {
+          name: "ثقة عالية",
+          emoji: "🌟",
+          color: "#48bb78",
+          description:
+            "تتمتع بمستوى عالٍ من الثقة بالنفس! أنت واثق من قدراتك وتؤمن بإمكانياتك.",
+          analysis:
+            "نتائجك تشير إلى أنك تمتلك أساساً قوياً من الثقة بالنفس. تستطيع اتخاذ القرارات بثقة، والتعامل مع التحديات بفعالية، والتواصل مع الآخرين بسلاسة. هذه الثقة تساعدك على تحقيق أهدافك والنمو في مختلف جوانب حياتك.",
+        },
+        good: {
+          name: "ثقة جيدة",
+          emoji: "😊",
+          color: "#4299e1",
+          description:
+            "لديك مستوى جيد من الثقة بالنفس مع مجال للتطوير في بعض المجالات.",
+          analysis:
+            "تمتلك قاعدة صلبة من الثقة بالنفس، لكن هناك بعض المجالات التي يمكنك تطويرها. أنت قادر على مواجهة معظم التحديات، لكن قد تشعر أحياناً ببعض التردد. مع القليل من العمل على نقاط محددة، يمكنك رفع ثقتك إلى مستوى أعلى.",
+        },
+        moderate: {
+          name: "ثقة متوسطة",
+          emoji: "🤔",
+          color: "#ed8936",
+          description: "ثقتك بنفسك متوسطة، وهناك فرص كبيرة للتحسين والنمو.",
+          analysis:
+            "تمر بفترات تشعر فيها بالثقة وأخرى قد تشك في قدراتك. هذا طبيعي، لكن هناك مجال كبير للتطوير. من خلال العمل على تعزيز ثقتك في المجالات التي حددناها، يمكنك بناء ثقة أكثر استقراراً وقوة.",
+        },
+        low: {
+          name: "تحتاج للتعزيز",
+          emoji: "💪",
+          color: "#f56565",
+          description:
+            "ثقتك بنفسك تحتاج إلى تعزيز، لكن التغيير ممكن مع الممارسة المستمرة.",
+          analysis:
+            "قد تواجه صعوبات في الثقة بنفسك وقدراتك، وهذا يؤثر على قراراتك وتفاعلاتك. لكن الخبر الجيد أنه يمكنك بناء ثقتك بالنفس من خلال خطوات محددة وممارسة مستمرة. التوصيات أدناه ستساعدك على البدء في رحلة تعزيز ثقتك.",
+        },
+      };
+
+      function startTest() {
+        document.getElementById("introSection").style.display = "none";
+        document.getElementById("progressSection").style.display = "block";
+        renderQuestion();
+
+        // Track event
+        if (typeof gtag !== "undefined") {
+          gtag("event", "start_test", {
+            test_type: "confidence",
+          });
+        }
+      }
+
+      function renderQuestion() {
+        const container = document.getElementById("questionsContainer");
+        const question = questions[currentQuestion];
+
+        container.innerHTML = `
+                <div class="question-container active">
+                    <div class="question-number">السؤال ${currentQuestion + 1} من ${questions.length}</div>
+                    <div class="question-text">${question.text}</div>
+                    <div class="answers">
+                        ${answerOptions
+                          .map(
+                            (option, index) => `
+                            <button class="answer-btn" onclick="selectAnswer(${option.value})" data-value="${option.value}">
+                                ${option.text}
+                            </button>
+                        `,
+                          )
+                          .join("")}
+                    </div>
+                    <button class="next-btn" id="nextBtn" onclick="nextQuestion()" disabled>
+                        ${currentQuestion === questions.length - 1 ? "عرض النتيجة" : "السؤال التالي"}
+                    </button>
+                </div>
+            `;
+
+        updateProgress();
+      }
+
+      function selectAnswer(value) {
+        const buttons = document.querySelectorAll(".answer-btn");
+        buttons.forEach((btn) => btn.classList.remove("selected"));
+        event.target.classList.add("selected");
+
+        answers[currentQuestion] = value;
+        document.getElementById("nextBtn").disabled = false;
+      }
+
+      function updateProgress() {
+        const progress = ((currentQuestion + 1) / questions.length) * 100;
+        document.getElementById("progressFill").style.width = progress + "%";
+      }
+
+      function nextQuestion() {
+        if (currentQuestion < questions.length - 1) {
+          currentQuestion++;
+          renderQuestion();
+        } else {
+          calculateResults();
+          showResults();
+        }
+      }
+
+      function calculateResults() {
+        // Reset scores
+        Object.keys(scores).forEach((key) => (scores[key] = 0));
+
+        // Calculate scores for each dimension
+        questions.forEach((question, index) => {
+          const answer = answers[index];
+          const score = question.reverse ? 6 - answer : answer;
+          scores[question.dimension] += score;
+        });
+
+        // Convert to percentages (each dimension has 5 questions, max 25 points)
+        Object.keys(scores).forEach((dimension) => {
+          scores[dimension] = Math.round((scores[dimension] / 25) * 100);
+        });
+
+        // Save to localStorage
+        const totalScore = Math.round(
+          Object.values(scores).reduce((a, b) => a + b, 0) / 4,
+        );
+
+        localStorage.setItem(
+          "confidenceTestResults",
+          JSON.stringify({
+            totalScore: totalScore,
+            scores: scores,
+            date: new Date().toISOString(),
+            completedTests:
+              parseInt(localStorage.getItem("completedTests") || 0) + 1,
+          }),
+        );
+      }
+
+      function showResults() {
+        document.getElementById("questionsContainer").style.display = "none";
+        document.getElementById("progressSection").style.display = "none";
+        document.getElementById("resultsSection").classList.add("active");
+
+        renderConfidenceLevel();
+        renderDimensionsResults();
+        renderAnalysis();
+        renderRecommendations();
+
+        // Confetti animation
+        confetti({
+          particleCount: 150,
+          spread: 80,
+          origin: { y: 0.6 },
+        });
+
+        // Track completion
+        if (typeof gtag !== "undefined") {
+          gtag("event", "complete_test", {
+            test_type: "confidence",
+          });
+        }
+      }
+
+      function renderConfidenceLevel() {
+        const totalScore = Math.round(
+          Object.values(scores).reduce((a, b) => a + b, 0) / 4,
+        );
+
+        let level;
+        if (totalScore >= 75) level = confidenceLevels.high;
+        else if (totalScore >= 60) level = confidenceLevels.good;
+        else if (totalScore >= 40) level = confidenceLevels.moderate;
+        else level = confidenceLevels.low;
+
+        const container = document.getElementById("confidenceLevel");
+        container.innerHTML = `
+                <div style="font-size: 3em; margin-bottom: 10px;">${level.emoji}</div>
+                <h3>${level.name}</h3>
+                <div class="score">${totalScore}%</div>
+                <div class="confidence-meter">
+                    <div class="confidence-meter-fill" style="width: ${totalScore}%; background: ${level.color};">
+                        ${totalScore}%
+                    </div>
+                </div>
+                <p style="font-size: 1.1em; opacity: 0.95;">${level.description}</p>
+            `;
+      }
+
+      function renderDimensionsResults() {
+        const container = document.getElementById("dimensionsResults");
+        let html = "";
+
+        Object.keys(scores).forEach((dimension) => {
+          const score = scores[dimension];
+
+          html += `
+                    <div class="dimension-result">
+                        <div class="dimension-header">
+                            <span class="dimension-name">${dimensionNames[dimension]}</span>
+                            <span class="dimension-score">${score}%</span>
+                        </div>
+                        <div class="dimension-bar-container">
+                            <div class="dimension-bar-fill" style="width: ${score}%"></div>
+                        </div>
+                    </div>
+                `;
+        });
+
+        container.innerHTML = html;
+      }
+
+      function renderAnalysis() {
+        const totalScore = Math.round(
+          Object.values(scores).reduce((a, b) => a + b, 0) / 4,
+        );
+
+        let level;
+        if (totalScore >= 75) level = confidenceLevels.high;
+        else if (totalScore >= 60) level = confidenceLevels.good;
+        else if (totalScore >= 40) level = confidenceLevels.moderate;
+        else level = confidenceLevels.low;
+
+        // Find weakest dimension
+        const weakestDimension = Object.keys(scores).reduce((a, b) =>
+          scores[a] < scores[b] ? a : b,
+        );
+
+        const strongestDimension = Object.keys(scores).reduce((a, b) =>
+          scores[a] > scores[b] ? a : b,
+        );
+
+        const container = document.getElementById("analysisSection");
+        container.innerHTML = `
+                <h3>📊 تحليل تفصيلي</h3>
+                <p>${level.analysis}</p>
+                <p>
+                    <strong>نقطة قوتك الأبرز:</strong> ${dimensionNames[strongestDimension]} 
+                    (${scores[strongestDimension]}%)
+                </p>
+                <p>
+                    <strong>مجال التطوير الرئيسي:</strong> ${dimensionNames[weakestDimension]} 
+                    (${scores[weakestDimension]}%)
+                </p>
+            `;
+      }
+
+      function renderRecommendations() {
+        const totalScore = Math.round(
+          Object.values(scores).reduce((a, b) => a + b, 0) / 4,
+        );
+
+        const weakestDimension = Object.keys(scores).reduce((a, b) =>
+          scores[a] < scores[b] ? a : b,
+        );
+
+        const recommendations = {
+          self: [
+            "ابدأ بأهداف صغيرة وحققها لبناء ثقتك تدريجياً",
+            "احتفل بإنجازاتك مهما كانت صغيرة",
+            "مارس الحديث الإيجابي مع النفس يومياً",
+            "واجه مخاوفك تدريجياً من خلال التعرض التدريجي",
+          ],
+          social: [
+            "ابدأ بمحادثات قصيرة مع أشخاص تشعر بالراحة معهم",
+            "مارس التواصل البصري أثناء المحادثات",
+            "انضم لمجموعات ذات اهتمامات مشتركة",
+            "تذكر أن معظم الناس منشغلون بأنفسهم أكثر من الحكم عليك",
+          ],
+          professional: [
+            "طور مهاراتك من خلال دورات ومشاريع جديدة",
+            "اطلب تغذية راجعة من زملائك ومديريك",
+            "تطوع للمشاريع الجديدة لبناء خبرتك",
+            "احتفظ بسجل لإنجازاتك المهنية",
+          ],
+          esteem: [
+            "مارس الامتنان يومياً لثلاثة أشياء إيجابية عنك",
+            "توقف عن مقارنة نفسك بالآخرين",
+            "اعتنِ بصحتك الجسدية والنفسية",
+            "أحط نفسك بأشخاص إيجابيين وداعمين",
+          ],
+        };
+
+        let generalTips = [
+          "خصص 10 دقائق يومياً للتأمل أو التنفس العميق",
+          "اقرأ كتباً عن تطوير الذات والثقة بالنفس",
+          "مارس الرياضة بانتظام لتحسين صورتك عن نفسك",
+          "اكتب يومياتك لفهم أفكارك ومشاعرك بشكل أفضل",
+        ];
+
+        const specificRecs = recommendations[weakestDimension];
+        const allRecs = [
+          ...specificRecs.slice(0, 2),
+          ...generalTips.slice(0, 2),
+        ];
+
+        const container = document.getElementById("recommendationsSection");
+        container.innerHTML = `
+                <h3>💡 توصيات لتعزيز ثقتك</h3>
+                <ul>
+                    ${allRecs.map((rec) => `<li>${rec}</li>`).join("")}
+                </ul>
+            `;
+      }
+
+      function shareResults() {
+        const totalScore = Math.round(
+          Object.values(scores).reduce((a, b) => a + b, 0) / 4,
+        );
+
+        let levelName;
+        if (totalScore >= 75) levelName = "ثقة عالية";
+        else if (totalScore >= 60) levelName = "ثقة جيدة";
+        else if (totalScore >= 40) levelName = "ثقة متوسطة";
+        else levelName = "بحاجة للتعزيز";
+
+        const text = `💪 أكملت اختبار الثقة بالنفس!\n\nمستوى ثقتي: ${levelName} (${totalScore}%)\n\nقيّم ثقتك الآن على:`;
+        const url = window.location.href;
+
+        if (navigator.share) {
+          navigator
+            .share({
+              title: "نتيجة اختبار الثقة بالنفس",
+              text: text,
+              url: url,
+            })
+            .catch(() => fallbackShare(text, url));
+        } else {
+          fallbackShare(text, url);
+        }
+      }
+
+      function fallbackShare(text, url) {
+        const fullText = `${text}\n${url}`;
+
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(fullText).then(() => {
+            alert("✅ تم نسخ النتيجة! يمكنك مشاركتها الآن");
+          });
+        } else {
+          prompt("انسخ هذا النص للمشاركة:", fullText);
+        }
+      }
+
+      function retryTest() {
+        currentQuestion = 0;
+        answers = {};
+        document.getElementById("resultsSection").classList.remove("active");
+        document.getElementById("introSection").style.display = "block";
+
+        if (typeof gtag !== "undefined") {
+          gtag("event", "retry_test", {
+            test_type: "confidence",
+          });
+        }
+      }
+
+      // Prevent accidental page exit
+      window.addEventListener("beforeunload", function (e) {
+        if (currentQuestion > 0 && currentQuestion < questions.length) {
+          e.preventDefault();
+          e.returnValue = "";
+        }
+      });
+    </script>
+  </body>
+</html>

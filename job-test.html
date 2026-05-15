@@ -1,0 +1,1065 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اختبار الوظيفة المناسبة | شخصيتك</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="اكتشف المسار المهني الأنسب لشخصيتك من خلال اختبار شامل يحلل اهتماماتك ومهاراتك وقيمك"
+    />
+    <meta
+      name="keywords"
+      content="اختبار الوظيفة, اختبار المسار المهني, اختيار التخصص, التوجيه المهني, career test"
+    />
+    <meta name="author" content="شخصيتك" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="اختبار الوظيفة المناسبة | شخصيتك" />
+    <meta
+      property="og:description"
+      content="اكتشف المسار المهني الأنسب لك بناءً على شخصيتك واهتماماتك"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://mahmoudsalam0.github.io/shahsiyatak/job-test.html"
+    />
+    <meta
+      property="og:image"
+      content="https://mahmoudsalam0.github.io/shahsiyatak/og-image.jpg"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="اختبار الوظيفة المناسبة" />
+    <meta name="twitter:description" content="اكتشف مسارك المهني المثالي" />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>"
+    />
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8Z7P9R6FB5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8Z7P9R6FB5");
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .home-btn {
+        display: inline-block;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        font-weight: 500;
+      }
+
+      .home-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 0.6s ease;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .header h1 {
+        color: #667eea;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        color: #666;
+        font-size: 1.1em;
+      }
+
+      .intro-text {
+        background: #f8f9ff;
+        padding: 20px;
+        border-radius: 15px;
+        margin: 20px 0;
+        border-right: 4px solid #667eea;
+      }
+
+      .intro-text h3 {
+        color: #667eea;
+        margin-bottom: 10px;
+      }
+
+      .intro-text p {
+        color: #555;
+        line-height: 1.8;
+      }
+
+      .categories-preview {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        margin: 25px 0;
+      }
+
+      .category-badge {
+        padding: 15px;
+        border-radius: 12px;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        transition: transform 0.3s ease;
+      }
+
+      .category-badge:hover {
+        transform: translateY(-5px);
+      }
+
+      .start-btn {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .start-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      .progress-bar {
+        background: #e0e0e0;
+        height: 8px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        transition: width 0.3s ease;
+        border-radius: 10px;
+      }
+
+      .question-number {
+        color: #667eea;
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 0.9em;
+      }
+
+      .question-text {
+        font-size: 1.4em;
+        margin-bottom: 25px;
+        color: #333;
+        font-weight: 500;
+        line-height: 1.6;
+      }
+
+      .answers {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .answer-btn {
+        padding: 18px 25px;
+        border: 2px solid #e0e0e0;
+        background: white;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1em;
+        text-align: right;
+      }
+
+      .answer-btn:hover {
+        border-color: #667eea;
+        background: #f8f9ff;
+        transform: translateX(-5px);
+      }
+
+      .answer-btn.selected {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-color: #667eea;
+      }
+
+      .result-header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .result-icon {
+        font-size: 4em;
+        margin-bottom: 15px;
+      }
+
+      .result-title {
+        font-size: 2.2em;
+        color: #667eea;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .result-subtitle {
+        color: #666;
+        font-size: 1.1em;
+      }
+
+      .career-card {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 30px;
+        border-radius: 15px;
+        margin-bottom: 25px;
+      }
+
+      .career-card h3 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+      }
+
+      .career-card p {
+        line-height: 1.8;
+        opacity: 0.95;
+      }
+
+      .career-examples {
+        background: #f8f9ff;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 25px;
+      }
+
+      .career-examples h4 {
+        color: #667eea;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+      }
+
+      .career-examples ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .career-examples li {
+        padding: 10px 0;
+        padding-right: 25px;
+        position: relative;
+        color: #555;
+      }
+
+      .career-examples li:before {
+        content: "✓";
+        position: absolute;
+        right: 0;
+        color: #667eea;
+        font-weight: bold;
+      }
+
+      .skills-section {
+        background: #fff5e6;
+        padding: 20px;
+        border-radius: 12px;
+        margin-bottom: 25px;
+      }
+
+      .skills-section h4 {
+        color: #ed8936;
+        margin-bottom: 15px;
+        font-size: 1.2em;
+      }
+
+      .skills-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .skill-tag {
+        background: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        color: #ed8936;
+        font-weight: 500;
+        border: 2px solid #ed8936;
+      }
+
+      .category-scores {
+        margin-top: 30px;
+      }
+
+      .score-bar {
+        margin-bottom: 20px;
+      }
+
+      .score-label {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .score-bg {
+        background: #e0e0e0;
+        height: 25px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .score-fill {
+        height: 100%;
+        transition: width 1s ease;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        color: white;
+        font-weight: bold;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .action-btn {
+        flex: 1;
+        min-width: 150px;
+        padding: 12px 25px;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        text-align: center;
+        display: inline-block;
+      }
+
+      .share-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .retry-btn {
+        background: white;
+        color: #667eea;
+        border: 2px solid #667eea;
+      }
+
+      .home-result-btn {
+        background: #48bb78;
+        color: white;
+      }
+
+      .action-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .result-card {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all 0.5s ease;
+      }
+
+      .result-card.celebrate {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      @media (max-width: 768px) {
+        .card {
+          padding: 25px;
+        }
+
+        .header h1 {
+          font-size: 1.8em;
+        }
+
+        .question-text {
+          font-size: 1.1em;
+        }
+
+        .categories-preview {
+          grid-template-columns: 1fr;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+        }
+
+        .action-btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="index.html" class="home-btn">← العودة للرئيسية</a>
+
+      <div class="card">
+        <div class="header">
+          <h1>💼 اختبار الوظيفة المناسبة</h1>
+          <p>اكتشف المسار المهني الأنسب لشخصيتك ومهاراتك</p>
+        </div>
+
+        <!-- Intro Section -->
+        <div id="introSection">
+          <div class="intro-text">
+            <h3>اكتشف مسارك المهني المثالي</h3>
+            <p>
+              هذا الاختبار يساعدك على اكتشاف المجالات المهنية الأنسب لك بناءً
+              على اهتماماتك، مهاراتك، وقيمك الشخصية. سنقيّم 6 مجالات رئيسية
+              لنوجهك نحو الوظيفة المثالية.
+            </p>
+          </div>
+
+          <div class="categories-preview">
+            <div
+              class="category-badge"
+              style="
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              "
+            >
+              🎨 الإبداع
+            </div>
+            <div
+              class="category-badge"
+              style="
+                background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+              "
+            >
+              🤝 التواصل
+            </div>
+            <div
+              class="category-badge"
+              style="
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+              "
+            >
+              🔬 التحليل
+            </div>
+            <div
+              class="category-badge"
+              style="
+                background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+              "
+            >
+              💼 القيادة
+            </div>
+            <div
+              class="category-badge"
+              style="
+                background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+              "
+            >
+              🛠️ التطبيق
+            </div>
+            <div
+              class="category-badge"
+              style="
+                background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+              "
+            >
+              📚 البحث
+            </div>
+          </div>
+
+          <p style="text-align: center; color: #999; margin: 20px 0">
+            ⏱️ المدة: 5-7 دقائق | 📝 عدد الأسئلة: 30 سؤال
+          </p>
+
+          <button class="start-btn" onclick="startTest()">
+            ابدأ الاختبار الآن
+          </button>
+        </div>
+
+        <!-- Game Section -->
+        <div id="gameSection" class="hidden">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+
+          <div class="question-number" id="questionNumber"></div>
+          <div class="question-text" id="questionText"></div>
+          <div class="answers" id="answersContainer"></div>
+        </div>
+
+        <!-- Result Section -->
+        <div id="resultSection" class="hidden">
+          <div class="result-card" id="resultCard">
+            <div id="resultContent"></div>
+
+            <div class="action-buttons">
+              <button class="action-btn share-btn" onclick="shareResults()">
+                📤 مشاركة النتيجة
+              </button>
+              <button class="action-btn retry-btn" onclick="retryTest()">
+                🔄 إعادة الاختبار
+              </button>
+              <a href="index.html" class="action-btn home-result-btn"
+                >🏠 العودة للرئيسية</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confetti Script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Confetti Fallback -->
+    <script>
+      // التأكد من تحميل Confetti بشكل صحيح مع fallback آمن
+      if (typeof confetti === "undefined") {
+        console.warn("⚠️ Confetti library not loaded, using fallback");
+        window.confetti = function (options) {
+          console.log("Confetti animation skipped");
+          return Promise.resolve();
+        };
+      }
+    </script>
+
+    <script>
+      const CAREER_TEST = {
+        categories: {
+          creative: { name: "الإبداع والفنون", color: "#667eea", icon: "🎨" },
+          social: { name: "التواصل والعلاقات", color: "#f5576c", icon: "🤝" },
+          analytical: {
+            name: "التحليل والبيانات",
+            color: "#00f2fe",
+            icon: "🔬",
+          },
+          leadership: {
+            name: "القيادة والإدارة",
+            color: "#38f9d7",
+            icon: "💼",
+          },
+          practical: {
+            name: "التطبيق والعمل اليدوي",
+            color: "#fee140",
+            icon: "🛠️",
+          },
+          research: { name: "البحث والاستكشاف", color: "#330867", icon: "📚" },
+        },
+
+        questions: [
+          {
+            q: "أستمتع بابتكار حلول جديدة وغير تقليدية للمشاكل",
+            cat: "creative",
+          },
+          { q: "أفضل العمل مع الناس ومساعدتهم على حل مشاكلهم", cat: "social" },
+          {
+            q: "أحب تحليل البيانات والأرقام للوصول إلى استنتاجات",
+            cat: "analytical",
+          },
+          { q: "أجد نفسي قادراً على قيادة الفرق وتحفيزها", cat: "leadership" },
+          {
+            q: "أفضل الأعمال التي تتطلب مهارات عملية ويدوية",
+            cat: "practical",
+          },
+          { q: "أستمتع بالبحث المعمق واكتشاف معلومات جديدة", cat: "research" },
+
+          { q: "التصميم والفن يجذبانني بشكل كبير", cat: "creative" },
+          { q: "أجيد بناء علاقات قوية مع الآخرين", cat: "social" },
+          {
+            q: "أميل لاتخاذ قرارات مبنية على الحقائق والأدلة",
+            cat: "analytical",
+          },
+          { q: "أحب التخطيط الاستراتيجي وإدارة المشاريع", cat: "leadership" },
+          { q: "أستمتع بإصلاح الأشياء وبناء نماذج عملية", cat: "practical" },
+          { q: "أحب قراءة الأبحاث العلمية والدراسات", cat: "research" },
+
+          {
+            q: "أفضل المهن التي تسمح لي بالتعبير عن نفسي بحرية",
+            cat: "creative",
+          },
+          { q: "مساعدة الآخرين تمنحني شعوراً بالرضا", cat: "social" },
+          { q: "أستطيع التعامل مع الأنظمة المعقدة بسهولة", cat: "analytical" },
+          { q: "أثق في قدرتي على اتخاذ قرارات صعبة", cat: "leadership" },
+          { q: "أفضل رؤية نتائج ملموسة لعملي", cat: "practical" },
+          { q: "الفضول المعرفي يدفعني للتعلم المستمر", cat: "research" },
+
+          {
+            q: "أحب تجربة أفكار جديدة حتى لو كانت غير تقليدية",
+            cat: "creative",
+          },
+          { q: "أستمتع بالعمل ضمن فريق والتعاون مع الآخرين", cat: "social" },
+          { q: "أجيد تنظيم المعلومات وتصنيفها بشكل منطقي", cat: "analytical" },
+          {
+            q: "أستطيع التأثير على الآخرين وإقناعهم بوجهة نظري",
+            cat: "leadership",
+          },
+          { q: "أفضل الأعمال التي تتطلب دقة ومهارة يدوية", cat: "practical" },
+          { q: "أحب استكشاف نظريات ومفاهيم جديدة", cat: "research" },
+
+          { q: "الروتين يشعرني بالملل، أفضل التنوع والإبداع", cat: "creative" },
+          { q: "أشعر بالطاقة عند التواصل مع أشخاص جدد", cat: "social" },
+          { q: "أستمتع بحل الألغاز والمسائل المعقدة", cat: "analytical" },
+          { q: "أرى نفسي في منصب قيادي مستقبلاً", cat: "leadership" },
+          { q: "أحب العمل بأدوات ومعدات متخصصة", cat: "practical" },
+          { q: "البحث عن الحقيقة والمعرفة يحفزني", cat: "research" },
+        ],
+
+        careers: {
+          creative: {
+            title: "المجال الإبداعي والفني",
+            icon: "🎨",
+            description:
+              "أنت شخص مبدع يحب الابتكار والتعبير عن نفسه. تتميز بالخيال الواسع والقدرة على رؤية الأشياء من زوايا مختلفة.",
+            jobs: [
+              "مصمم جرافيك",
+              "كاتب ومؤلف",
+              "مخرج أو مصور",
+              "مهندس معماري",
+              "مصمم أزياء",
+              "فنان رقمي",
+            ],
+            skills: [
+              "الإبداع",
+              "التفكير خارج الصندوق",
+              "الحس الفني",
+              "الابتكار",
+              "المرونة",
+            ],
+          },
+          social: {
+            title: "المجال الاجتماعي والإنساني",
+            icon: "🤝",
+            description:
+              "أنت شخص اجتماعي يحب مساعدة الآخرين. تتمتع بمهارات تواصل قوية وقدرة على بناء علاقات متينة.",
+            jobs: [
+              "معالج نفسي",
+              "أخصائي اجتماعي",
+              "معلم أو مدرب",
+              "مستشار مهني",
+              "أخصائي موارد بشرية",
+              "ممرض أو طبيب",
+            ],
+            skills: [
+              "التواصل",
+              "التعاطف",
+              "الاستماع",
+              "حل المشاكل",
+              "بناء العلاقات",
+            ],
+          },
+          analytical: {
+            title: "المجال التحليلي والتقني",
+            icon: "🔬",
+            description:
+              "أنت شخص تحليلي يحب الأرقام والبيانات. تتميز بالمنطق والقدرة على حل المشاكل المعقدة.",
+            jobs: [
+              "محلل بيانات",
+              "مبرمج",
+              "محاسب",
+              "مهندس برمجيات",
+              "محلل مالي",
+              "عالم بيانات",
+            ],
+            skills: [
+              "التفكير المنطقي",
+              "التحليل",
+              "الدقة",
+              "حل المشاكل",
+              "التنظيم",
+            ],
+          },
+          leadership: {
+            title: "مجال القيادة والإدارة",
+            icon: "💼",
+            description:
+              "أنت شخص قيادي بطبعك. تتمتع بالقدرة على اتخاذ القرارات وتحفيز الفرق لتحقيق الأهداف.",
+            jobs: [
+              "مدير مشاريع",
+              "رائد أعمال",
+              "مدير تنفيذي",
+              "مستشار إداري",
+              "مدير تسويق",
+              "قائد فريق",
+            ],
+            skills: [
+              "القيادة",
+              "اتخاذ القرار",
+              "التخطيط",
+              "التحفيز",
+              "الرؤية الاستراتيجية",
+            ],
+          },
+          practical: {
+            title: "المجال التطبيقي والعملي",
+            icon: "🛠️",
+            description:
+              "أنت شخص عملي يحب العمل بيديه ورؤية نتائج ملموسة. تتميز بالمهارات التطبيقية والدقة.",
+            jobs: [
+              "مهندس ميكانيكي",
+              "فني صيانة",
+              "طباخ محترف",
+              "مهندس كهرباء",
+              "نجار أو حداد",
+              "ميكانيكي سيارات",
+            ],
+            skills: [
+              "المهارات اليدوية",
+              "الدقة",
+              "حل المشاكل العملية",
+              "الصبر",
+              "الانتباه للتفاصيل",
+            ],
+          },
+          research: {
+            title: "مجال البحث والاستكشاف",
+            icon: "📚",
+            description:
+              "أنت شخص باحث بطبعك. تحب اكتشاف المعرفة الجديدة والتعمق في فهم الأشياء.",
+            jobs: [
+              "باحث علمي",
+              "أستاذ جامعي",
+              "عالم",
+              "محلل أبحاث",
+              "مؤرخ",
+              "صحفي استقصائي",
+            ],
+            skills: [
+              "البحث",
+              "التحليل النقدي",
+              "الفضول",
+              "الصبر",
+              "التفكير العميق",
+            ],
+          },
+        },
+      };
+
+      let currentQ = 0;
+      let scores = {
+        creative: 0,
+        social: 0,
+        analytical: 0,
+        leadership: 0,
+        practical: 0,
+        research: 0,
+      };
+      let selectedAnswer = null;
+
+      function startTest() {
+        document.getElementById("introSection").classList.add("hidden");
+        document.getElementById("gameSection").classList.remove("hidden");
+
+        if (typeof gtag !== "undefined") {
+          gtag("event", "start_test", {
+            test_type: "career_match",
+          });
+        }
+
+        showQuestion();
+      }
+
+      function showQuestion() {
+        if (currentQ >= CAREER_TEST.questions.length) {
+          showResult();
+          return;
+        }
+
+        const q = CAREER_TEST.questions[currentQ];
+        document.getElementById("questionNumber").textContent =
+          "السؤال " + (currentQ + 1) + " من " + CAREER_TEST.questions.length;
+        document.getElementById("questionText").textContent = q.q;
+
+        const answers = [
+          { text: "لا أوافق بشدة", value: 1 },
+          { text: "لا أوافق", value: 2 },
+          { text: "محايد", value: 3 },
+          { text: "أوافق", value: 4 },
+          { text: "أوافق بشدة", value: 5 },
+        ];
+
+        let html = "";
+        answers.forEach((ans) => {
+          html += `<button class="answer-btn" onclick="selectAnswer(${ans.value}, '${q.cat}')">${ans.text}</button>`;
+        });
+        document.getElementById("answersContainer").innerHTML = html;
+
+        let progress = ((currentQ + 1) / CAREER_TEST.questions.length) * 100;
+        document.getElementById("progressFill").style.width = progress + "%";
+      }
+
+      function selectAnswer(value, category) {
+        // Prevent double-click
+        if (selectedAnswer !== null) return;
+        selectedAnswer = value;
+
+        // Visual feedback
+        event.target.classList.add("selected");
+
+        scores[category] += value;
+        currentQ++;
+
+        setTimeout(() => {
+          selectedAnswer = null;
+          showQuestion();
+        }, 300);
+      }
+
+      function showResult() {
+        document.getElementById("gameSection").classList.add("hidden");
+        document.getElementById("resultSection").classList.remove("hidden");
+
+        // Find top career
+        let topCareer = Object.keys(scores).reduce((a, b) =>
+          scores[a] > scores[b] ? a : b,
+        );
+
+        const career = CAREER_TEST.careers[topCareer];
+        const maxScore =
+          CAREER_TEST.questions.filter((q) => q.cat === topCareer).length * 5;
+        const percentage = Math.round((scores[topCareer] / maxScore) * 100);
+
+        let html = `
+                <div class="result-header">
+                    <div class="result-icon">${career.icon}</div>
+                    <h2 class="result-title">${career.title}</h2>
+                    <p class="result-subtitle">التوافق: ${percentage}%</p>
+                </div>
+
+                <div class="career-card">
+                    <h3>وصف المجال</h3>
+                    <p>${career.description}</p>
+                </div>
+
+                <div class="career-examples">
+                    <h4>أمثلة على الوظائف المناسبة:</h4>
+                    <ul>
+                        ${career.jobs.map((job) => `<li>${job}</li>`).join("")}
+                    </ul>
+                </div>
+
+                <div class="skills-section">
+                    <h4>المهارات الرئيسية:</h4>
+                    <div class="skills-tags">
+                        ${career.skills.map((skill) => `<span class="skill-tag">${skill}</span>`).join("")}
+                    </div>
+                </div>
+
+                <div class="category-scores">
+                    <h4 style="margin-bottom: 20px; color: #667eea;">📊 تحليل جميع المجالات:</h4>
+            `;
+
+        // Add score bars for all categories
+        Object.entries(CAREER_TEST.categories).forEach(([key, cat]) => {
+          const catMaxScore =
+            CAREER_TEST.questions.filter((q) => q.cat === key).length * 5;
+          const catPercentage = Math.round((scores[key] / catMaxScore) * 100);
+
+          html += `
+                    <div class="score-bar">
+                        <div class="score-label">
+                            <span>${cat.icon} ${cat.name}</span>
+                            <span style="color: ${cat.color}">${catPercentage}%</span>
+                        </div>
+                        <div class="score-bg">
+                            <div class="score-fill" style="width: ${catPercentage}%; background: ${cat.color};">
+                                ${catPercentage}%
+                            </div>
+                        </div>
+                    </div>
+                `;
+        });
+
+        html += `</div>`;
+        document.getElementById("resultContent").innerHTML = html;
+
+        let card = document.getElementById("resultCard");
+        setTimeout(() => card.classList.add("celebrate"), 100);
+
+        // ✅ Confetti with error handling
+        if (typeof confetti === "function") {
+          try {
+            confetti({
+              particleCount: 100,
+              spread: 70,
+              origin: { y: 0.6 },
+            });
+          } catch (error) {
+            console.warn("Confetti error:", error);
+          }
+        } else {
+          console.log("🎉 تم إتمام الاختبار بنجاح");
+        }
+
+        // 💾 Save results
+        try {
+          localStorage.setItem(
+            "careerTestResults",
+            JSON.stringify({
+              topCareer: topCareer,
+              careerTitle: career.title,
+              percentage: percentage,
+              scores: scores,
+              date: new Date().toISOString(),
+            }),
+          );
+
+          const completedTests = parseInt(
+            localStorage.getItem("completedTests") || "0",
+          );
+          localStorage.setItem(
+            "completedTests",
+            (completedTests + 1).toString(),
+          );
+        } catch (e) {
+          console.warn("LocalStorage save failed:", e);
+        }
+
+        // 📊 Analytics
+        if (typeof gtag !== "undefined") {
+          gtag("event", "complete_test", {
+            test_type: "career_match",
+            result: topCareer,
+            score: percentage,
+          });
+        }
+      }
+
+      function shareResults() {
+        const results = JSON.parse(
+          localStorage.getItem("careerTestResults") || "{}",
+        );
+        const text = `💼 أكملت اختبار الوظيفة المناسبة!\n\nالمجال الأنسب لي: ${results.careerTitle}\nالتوافق: ${results.percentage}%\n\nاكتشف مسارك المهني على:`;
+        const url = window.location.href;
+
+        if (navigator.share) {
+          navigator
+            .share({
+              title: "نتيجة اختبار الوظيفة المناسبة",
+              text: text,
+              url: url,
+            })
+            .catch(() => fallbackShare(text, url));
+        } else {
+          fallbackShare(text, url);
+        }
+      }
+
+      function fallbackShare(text, url) {
+        const fullText = `${text}\n${url}`;
+
+        if (navigator.clipboard) {
+          navigator.clipboard
+            .writeText(fullText)
+            .then(() => {
+              alert("✅ تم نسخ النتيجة! يمكنك مشاركتها الآن");
+            })
+            .catch(() => {
+              prompt("انسخ هذا النص للمشاركة:", fullText);
+            });
+        } else {
+          prompt("انسخ هذا النص للمشاركة:", fullText);
+        }
+      }
+
+      function retryTest() {
+        currentQ = 0;
+        scores = {
+          creative: 0,
+          social: 0,
+          analytical: 0,
+          leadership: 0,
+          practical: 0,
+          research: 0,
+        };
+        selectedAnswer = null;
+
+        document.getElementById("resultSection").classList.add("hidden");
+        document.getElementById("introSection").classList.remove("hidden");
+
+        if (typeof gtag !== "undefined") {
+          gtag("event", "retry_test", {
+            test_type: "career_match",
+          });
+        }
+      }
+
+      // Prevent accidental page exit
+      window.addEventListener("beforeunload", function (e) {
+        if (currentQ > 0 && currentQ < CAREER_TEST.questions.length) {
+          e.preventDefault();
+          e.returnValue = "";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اختبار الذكاء العاطفي | شخصيتك</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="اكتشف مستوى ذكائك العاطفي من خلال اختبار شامل يقيس الوعي الذاتي، إدارة العواطف، التعاطف والمهارات الاجتماعية"
+    />
+    <meta
+      name="keywords"
+      content="اختبار الذكاء العاطفي, EQ test, الوعي العاطفي, إدارة المشاعر, التعاطف, المهارات الاجتماعية"
+    />
+    <meta name="author" content="شخصيتك" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="اختبار الذكاء العاطفي | شخصيتك" />
+    <meta
+      property="og:description"
+      content="اكتشف مستوى ذكائك العاطفي واحصل على تحليل تفصيلي لقدراتك العاطفية"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://mahmoudsalam0.github.io/shahsiyatak/eq-test.html"
+    />
+    <meta
+      property="og:image"
+      content="https://mahmoudsalam0.github.io/shahsiyatak/og-image.jpg"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="اختبار الذكاء العاطفي" />
+    <meta
+      name="twitter:description"
+      content="اكتشف مستوى ذكائك العاطفي في اختبار شامل ودقيق"
+    />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>"
+    />
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8Z7P9R6FB5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-8Z7P9R6FB5");
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .home-btn {
+        display: inline-block;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        font-weight: 500;
+      }
+
+      .home-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 0.6s ease;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .header h1 {
+        color: #667eea;
+        font-size: 2.5em;
+        margin-bottom: 10px;
+      }
+
+      .header p {
+        color: #666;
+        font-size: 1.1em;
+      }
+
+      .intro-text {
+        background: #f8f9ff;
+        padding: 20px;
+        border-radius: 15px;
+        margin: 20px 0;
+        border-right: 4px solid #667eea;
+      }
+
+      .intro-text h3 {
+        color: #667eea;
+        margin-bottom: 10px;
+      }
+
+      .intro-text p {
+        color: #555;
+        line-height: 1.8;
+      }
+
+      .dimensions-preview {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 25px 0;
+      }
+
+      .dimension-badge {
+        padding: 15px;
+        border-radius: 12px;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        transition: transform 0.3s ease;
+      }
+
+      .dimension-badge:hover {
+        transform: translateY(-5px);
+      }
+
+      .start-btn {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.2em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .start-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      .progress-bar {
+        background: #e0e0e0;
+        height: 8px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        transition: width 0.3s ease;
+        border-radius: 10px;
+      }
+
+      .question-number {
+        color: #667eea;
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 0.9em;
+      }
+
+      .question-text {
+        font-size: 1.4em;
+        margin-bottom: 25px;
+        color: #333;
+        font-weight: 500;
+        line-height: 1.6;
+      }
+
+      .answers {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .answer-btn {
+        padding: 18px 25px;
+        border: 2px solid #e0e0e0;
+        background: white;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1em;
+        text-align: right;
+      }
+
+      .answer-btn:hover {
+        border-color: #667eea;
+        background: #f8f9ff;
+        transform: translateX(-5px);
+      }
+
+      .answer-btn.selected {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-color: #667eea;
+      }
+
+      .result-type-title {
+        font-size: 2em;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 15px;
+      }
+
+      .result-score-badge {
+        text-align: center;
+        padding: 15px;
+        border-radius: 12px;
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .result-desc {
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 25px;
+        text-align: center;
+      }
+
+      .dim-bar-label {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .dim-bar-bg {
+        background: #e0e0e0;
+        height: 25px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+
+      .dim-bar-fill {
+        height: 100%;
+        transition: width 1s ease;
+        border-radius: 12px;
+      }
+
+      .result-card {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all 0.5s ease;
+      }
+
+      .result-card.celebrate {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .action-btn {
+        flex: 1;
+        min-width: 150px;
+        padding: 12px 25px;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        text-align: center;
+        display: inline-block;
+      }
+
+      .share-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .retry-btn {
+        background: white;
+        color: #667eea;
+        border: 2px solid #667eea;
+      }
+
+      .home-result-btn {
+        background: #48bb78;
+        color: white;
+      }
+
+      .action-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (max-width: 768px) {
+        .card {
+          padding: 25px;
+        }
+
+        .header h1 {
+          font-size: 1.8em;
+        }
+
+        .question-text {
+          font-size: 1.1em;
+        }
+
+        .dimensions-preview {
+          grid-template-columns: 1fr;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+        }
+
+        .action-btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="index.html" class="home-btn">← العودة للرئيسية</a>
+
+      <div class="card">
+        <div class="header">
+          <h1>🧠 اختبار الذكاء العاطفي</h1>
+          <p>اكتشف مستوى ذكائك العاطفي عبر 4 أبعاد رئيسية</p>
+        </div>
+
+        <!-- Intro Section -->
+        <div id="introSection">
+          <div class="intro-text">
+            <h3>ما هو الذكاء العاطفي؟</h3>
+            <p>
+              الذكاء العاطفي (EQ) هو القدرة على فهم وإدارة عواطفك الخاصة،
+              بالإضافة إلى فهم وإدارة عواطف الآخرين. يشمل هذا الاختبار 4 أبعاد
+              أساسية:
+            </p>
+          </div>
+
+          <div class="dimensions-preview">
+            <div
+              class="dimension-badge"
+              style="
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              "
+            >
+              🎯 الوعي الذاتي
+            </div>
+            <div
+              class="dimension-badge"
+              style="
+                background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+              "
+            >
+              ⚖️ إدارة العواطف
+            </div>
+            <div
+              class="dimension-badge"
+              style="
+                background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+              "
+            >
+              💙 التعاطف
+            </div>
+            <div
+              class="dimension-badge"
+              style="
+                background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+              "
+            >
+              🤝 المهارات الاجتماعية
+            </div>
+          </div>
+
+          <p style="text-align: center; color: #999; margin: 20px 0">
+            ⏱️ المدة: 5-7 دقائق | 📝 عدد الأسئلة: 25 سؤال
+          </p>
+
+          <button class="start-btn" onclick="startTest()">
+            ابدأ الاختبار الآن
+          </button>
+        </div>
+
+        <!-- Game Section -->
+        <div id="gameSection" class="hidden">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+
+          <div class="question-number" id="questionNumber"></div>
+          <div class="question-text" id="questionText"></div>
+          <div class="answers" id="answersContainer"></div>
+        </div>
+
+        <!-- Result Section -->
+        <div id="resultSection" class="hidden">
+          <div class="result-card" id="resultCard">
+            <div id="resultContent"></div>
+            <div id="dimBreakdown"></div>
+
+            <div class="action-buttons">
+              <button class="action-btn share-btn" onclick="shareResults()">
+                📤 مشاركة النتيجة
+              </button>
+              <button class="action-btn retry-btn" onclick="retryTest()">
+                🔄 إعادة الاختبار
+              </button>
+              <a href="index.html" class="action-btn home-result-btn"
+                >🏠 العودة للرئيسية</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confetti Script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Confetti Fallback -->
+    <script>
+      // التأكد من تحميل Confetti بشكل صحيح مع fallback آمن
+      if (typeof confetti === "undefined") {
+        console.warn("⚠️ Confetti library not loaded, using fallback");
+        window.confetti = function (options) {
+          console.log("Confetti animation skipped");
+          return Promise.resolve();
+        };
+      }
+    </script>
+
+    <script>
+      const EQ_TEST = {
+        dimensions: {
+          selfAwareness: {
+            name: "الوعي الذاتي",
+            color: "#667eea",
+          },
+          emotionManagement: {
+            name: "إدارة العواطف",
+            color: "#f5576c",
+          },
+          empathy: {
+            name: "التعاطف",
+            color: "#00f2fe",
+          },
+          socialSkills: {
+            name: "المهارات الاجتماعية",
+            color: "#38f9d7",
+          },
+        },
+        questions: [
+          {
+            q: "أستطيع التعرف على مشاعري بسهولة عندما أشعر بها",
+            dim: "selfAwareness",
+          },
+          {
+            q: "أفهم كيف تؤثر عواطفي على سلوكي وقراراتي",
+            dim: "selfAwareness",
+          },
+          {
+            q: "أدرك نقاط قوتي وضعفي بوضوح",
+            dim: "selfAwareness",
+          },
+          {
+            q: "أعرف متى أحتاج إلى وقت للتعافي عاطفياً",
+            dim: "selfAwareness",
+          },
+          {
+            q: "أستطيع وصف مشاعري بدقة للآخرين",
+            dim: "selfAwareness",
+          },
+          {
+            q: "أتحكم في غضبي حتى في المواقف الصعبة",
+            dim: "emotionManagement",
+          },
+          {
+            q: "أستطيع تهدئة نفسي عندما أشعر بالقلق أو التوتر",
+            dim: "emotionManagement",
+          },
+          {
+            q: "لا أدع المشاعر السلبية تسيطر على يومي",
+            dim: "emotionManagement",
+          },
+          {
+            q: "أتعامل مع الضغوط بطريقة صحية",
+            dim: "emotionManagement",
+          },
+          {
+            q: "أستطيع الحفاظ على تفاؤلي حتى في الأوقات الصعبة",
+            dim: "emotionManagement",
+          },
+          {
+            q: "أشعر بمشاعر الآخرين وأفهم ما يمرون به",
+            dim: "empathy",
+          },
+          {
+            q: "أستطيع قراءة لغة الجسد والإشارات غير اللفظية",
+            dim: "empathy",
+          },
+          {
+            q: "أضع نفسي مكان الآخرين لأفهم وجهة نظرهم",
+            dim: "empathy",
+          },
+          {
+            q: "أهتم بمشاعر الآخرين وأحاول مساعدتهم",
+            dim: "empathy",
+          },
+          {
+            q: "أستمع بإنصات عندما يشاركني أحدهم مشاعره",
+            dim: "empathy",
+          },
+          {
+            q: "أبني علاقات قوية ومستدامة مع الآخرين",
+            dim: "socialSkills",
+          },
+          {
+            q: "أستطيع التواصل بفعالية في المواقف الاجتماعية",
+            dim: "socialSkills",
+          },
+          {
+            q: "أجيد حل النزاعات بطريقة بناءة",
+            dim: "socialSkills",
+          },
+          {
+            q: "أستطيع التأثير إيجابياً على الآخرين",
+            dim: "socialSkills",
+          },
+          {
+            q: "أعمل بفعالية ضمن فريق وأساهم في نجاحه",
+            dim: "socialSkills",
+          },
+          {
+            q: "أتقبل النقد البناء وأستفيد منه",
+            dim: "selfAwareness",
+          },
+          {
+            q: "أستطيع تأجيل الإشباع الفوري لتحقيق أهداف أكبر",
+            dim: "emotionManagement",
+          },
+          {
+            q: "أشعر بالسعادة لنجاح الآخرين",
+            dim: "empathy",
+          },
+          {
+            q: "أعبر عن احتياجاتي بوضوح دون جرح الآخرين",
+            dim: "socialSkills",
+          },
+          {
+            q: "أتكيف مع التغييرات العاطفية بسهولة",
+            dim: "emotionManagement",
+          },
+        ],
+        answers: [
+          { text: "نادراً", score: 1 },
+          { text: "أحياناً", score: 2 },
+          { text: "غالباً", score: 3 },
+          { text: "دائماً", score: 4 },
+        ],
+        types: {
+          exceptional: {
+            title: "🌟 ذكاء عاطفي استثنائي",
+            color: "#48bb78",
+            desc: "تمتلك مستوى عالٍ جداً من الذكاء العاطفي! أنت ممتاز في فهم وإدارة عواطفك، وتتمتع بقدرة رائعة على التعاطف والتواصل مع الآخرين. استمر في تطوير هذه المهارات القيمة.",
+          },
+          high: {
+            title: "✨ ذكاء عاطفي مرتفع",
+            color: "#4299e1",
+            desc: "لديك مستوى جيد من الذكاء العاطفي. تفهم مشاعرك وتديرها بفعالية، وتتعامل مع الآخرين بتعاطف. مع القليل من التطوير، يمكنك الوصول إلى مستوى استثنائي.",
+          },
+          average: {
+            title: "📊 ذكاء عاطفي متوسط",
+            color: "#ed8936",
+            desc: "ذكاؤك العاطفي في المستوى المتوسط. لديك أساس جيد، لكن هناك مجال للتحسين في بعض المجالات. ركز على تطوير الأبعاد التي حصلت فيها على نقاط أقل.",
+          },
+          developing: {
+            title: "🌱 ذكاء عاطفي في طور النمو",
+            color: "#f56565",
+            desc: "ذكاؤك العاطفي يحتاج إلى تطوير. لا تقلق - الذكاء العاطفي مهارة يمكن تعلمها وتحسينها! ابدأ بالعمل على الوعي الذاتي وإدارة عواطفك، والنتائج ستأتي تدريجياً.",
+          },
+        },
+      };
+
+      let currentQ = 0;
+      let dimScores = {};
+      let dimCounts = {};
+
+      function startTest() {
+        document.getElementById("introSection").classList.add("hidden");
+        document.getElementById("gameSection").classList.remove("hidden");
+
+        // تتبع بداية الاختبار
+        if (typeof gtag !== "undefined") {
+          gtag("event", "start_test", {
+            test_type: "emotional_intelligence",
+          });
+        }
+
+        showQuestion();
+      }
+
+      function showQuestion() {
+        if (currentQ >= EQ_TEST.questions.length) {
+          showResult();
+          return;
+        }
+
+        const q = EQ_TEST.questions[currentQ];
+        document.getElementById("questionNumber").textContent =
+          "السؤال " + (currentQ + 1) + " من " + EQ_TEST.questions.length;
+        document.getElementById("questionText").textContent = q.q;
+
+        let html = "";
+        EQ_TEST.answers.forEach((ans) => {
+          html +=
+            '<button class="answer-btn" onclick="selectAnswer(' +
+            ans.score +
+            ",'" +
+            q.dim +
+            "')\">" +
+            ans.text +
+            "</button>";
+        });
+        document.getElementById("answersContainer").innerHTML = html;
+
+        let progress = ((currentQ + 1) / EQ_TEST.questions.length) * 100;
+        document.getElementById("progressFill").style.width = progress + "%";
+      }
+
+      function selectAnswer(score, dim) {
+        if (!dimScores[dim]) dimScores[dim] = 0;
+        if (!dimCounts[dim]) dimCounts[dim] = 0;
+
+        dimScores[dim] += score;
+        dimCounts[dim]++;
+        currentQ++;
+
+        setTimeout(showQuestion, 200);
+      }
+
+      function showResult() {
+        document.getElementById("gameSection").classList.add("hidden");
+        document.getElementById("resultSection").classList.remove("hidden");
+
+        let totalScore = Object.values(dimScores).reduce((a, b) => a + b, 0);
+        let maxPossible = EQ_TEST.questions.length * 4;
+        let pct = Math.round((totalScore / maxPossible) * 100);
+
+        let type;
+        if (pct >= 94) type = EQ_TEST.types.exceptional;
+        else if (pct >= 75) type = EQ_TEST.types.high;
+        else if (pct >= 56) type = EQ_TEST.types.average;
+        else type = EQ_TEST.types.developing;
+
+        let html =
+          '<div class="result-type-title" style="color:' +
+          type.color +
+          ';">' +
+          type.title +
+          "</div>";
+        html +=
+          '<div class="result-score-badge" style="background:' +
+          type.color +
+          "22;color:" +
+          type.color +
+          ';">مجموع نقاطك: ' +
+          totalScore +
+          " من " +
+          maxPossible +
+          " (" +
+          pct +
+          "%)</div>";
+        html += '<div class="result-desc">' + type.desc + "</div>";
+        html +=
+          '<div style="font-size:15px;font-weight:bold;margin-bottom:12px;">📊 تحليل الأبعاد الأربعة:</div>';
+
+        document.getElementById("resultContent").innerHTML = html;
+
+        let barsHTML = "";
+        Object.entries(EQ_TEST.dimensions).forEach(([key, dim]) => {
+          let cnt = dimCounts[key] || 1;
+          let sc = dimScores[key] || 0;
+          let dimPct = Math.round((sc / (cnt * 4)) * 100);
+          barsHTML +=
+            '<div class="dim-bar-label"><span>' +
+            dim.name +
+            '</span><span style="color:' +
+            dim.color +
+            '">' +
+            dimPct +
+            "%</span></div>";
+          barsHTML +=
+            '<div class="dim-bar-bg"><div class="dim-bar-fill" style="width:' +
+            dimPct +
+            "%;background:" +
+            dim.color +
+            ';"></div></div>';
+        });
+        document.getElementById("dimBreakdown").innerHTML = barsHTML;
+
+        let card = document.getElementById("resultCard");
+        setTimeout(() => card.classList.add("celebrate"), 100);
+
+        // ✅ تحسين الـ Confetti مع التأكد من التحميل
+        if (typeof confetti !== "undefined" && typeof confetti === "function") {
+          const end = Date.now() + 1500;
+          (function frame() {
+            try {
+              confetti({
+                particleCount: 4,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+              });
+              confetti({
+                particleCount: 4,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 },
+              });
+            } catch (error) {
+              console.warn("Confetti error:", error);
+            }
+            if (Date.now() < end) requestAnimationFrame(frame);
+          })();
+        } else {
+          console.log("🎉 تم إتمام الاختبار بنجاح (confetti unavailable)");
+        }
+
+        // 💾 حفظ النتيجة في localStorage
+        try {
+          localStorage.setItem(
+            "eqTestResults",
+            JSON.stringify({
+              score: totalScore,
+              percentage: pct,
+              type: type.title,
+              date: new Date().toISOString(),
+              dimensions: dimScores,
+            }),
+          );
+
+          // تحديث عداد الاختبارات المكتملة
+          const completedTests = parseInt(
+            localStorage.getItem("completedTests") || "0",
+          );
+          localStorage.setItem(
+            "completedTests",
+            (completedTests + 1).toString(),
+          );
+        } catch (e) {
+          console.warn("LocalStorage save failed:", e);
+        }
+
+        // 📊 Google Analytics Tracking
+        if (typeof gtag !== "undefined") {
+          gtag("event", "complete_test", {
+            test_type: "emotional_intelligence",
+            score: pct,
+            level: type.title,
+          });
+        }
+      }
+
+      function shareResults() {
+        const results = JSON.parse(
+          localStorage.getItem("eqTestResults") || "{}",
+        );
+        const text = `🧠 أكملت اختبار الذكاء العاطفي!\n\nنتيجتي: ${results.percentage}%\nالمستوى: ${results.type}\n\nاكتشف ذكاءك العاطفي على:`;
+        const url = window.location.href;
+
+        if (navigator.share) {
+          navigator
+            .share({
+              title: "نتيجة اختبار الذكاء العاطفي",
+              text: text,
+              url: url,
+            })
+            .catch(() => fallbackShare(text, url));
+        } else {
+          fallbackShare(text, url);
+        }
+      }
+
+      function fallbackShare(text, url) {
+        const fullText = `${text}\n${url}`;
+
+        if (navigator.clipboard) {
+          navigator.clipboard
+            .writeText(fullText)
+            .then(() => {
+              alert("✅ تم نسخ النتيجة! يمكنك مشاركتها الآن");
+            })
+            .catch(() => {
+              prompt("انسخ هذا النص للمشاركة:", fullText);
+            });
+        } else {
+          prompt("انسخ هذا النص للمشاركة:", fullText);
+        }
+      }
+
+      function retryTest() {
+        currentQ = 0;
+        dimScores = {};
+        dimCounts = {};
+        document.getElementById("resultSection").classList.add("hidden");
+        document.getElementById("introSection").classList.remove("hidden");
+
+        if (typeof gtag !== "undefined") {
+          gtag("event", "retry_test", {
+            test_type: "emotional_intelligence",
+          });
+        }
+      }
+
+      // منع إغلاق الصفحة أثناء الاختبار
+      window.addEventListener("beforeunload", function (e) {
+        if (currentQ > 0 && currentQ < EQ_TEST.questions.length) {
+          e.preventDefault();
+          e.returnValue = "";
+        }
+      });
+    </script>
+  </body>
+</html>
