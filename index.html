@@ -639,6 +639,33 @@
       .contact-icon {
         font-size: 22px;
       }
+      <!-- إحصائيات سريعة -->
+<div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; margin: 30px 0; text-align: center;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;">
+        <div>
+            <div style="font-size: 2.5em; font-weight: bold; color: #48bb78;" id="testCount">0</div>
+            <div style="color: rgba(255,255,255,0.8);">اختبار مكتمل</div>
+        </div>
+        <div>
+            <div style="font-size: 2.5em; font-weight: bold; color: #f56565;" id="streakCount">0</div>
+            <div style="color: rgba(255,255,255,0.8);">يوم متتالي</div>
+        </div>
+        <div>
+            <div style="font-size: 2.5em; font-weight: bold; color: #4299e1;">5</div>
+            <div style="color: rgba(255,255,255,0.8);">اختبار متاح</div>
+        </div>
+    </div>
+</div>
+
+<script>
+// عرض الإحصائيات
+const completedTests = parseInt(localStorage.getItem('completedTests') || '0');
+document.getElementById('testCount').textContent = completedTests;
+
+// Streak (إذا موجود)
+const streak = parseInt(localStorage.getItem('streak') || '0');
+document.getElementById('streakCount').textContent = streak;
+</script>
 
       /* ========= FOOTER ========= */
       .footer {
