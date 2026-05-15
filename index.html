@@ -920,9 +920,9 @@ document.getElementById('streakCount').textContent = streak;
         </div>
 
         <div class="footer">
-        <a href="#" onclick="showPrivacy(); return false;">سياسة الخصوصية</a>
+<a href="javascript:void(0)" onclick="showPrivacy()">سياسة الخصوصية</a>
 <a href="about.html">من نحن</a>
-<a href="#" onclick="showContact(); return false;">تواصل معنا</a>
+<a href="javascript:void(0)" onclick="showContact()">تواصل معنا</a>
           
         </div>
       </div>
@@ -2487,5 +2487,42 @@ document.getElementById('streakCount').textContent = streak;
     window.onload = initLanding;
 </script>
     </script>
+    <script>
+    // دالة فتح سياسة الخصوصية
+    function showPrivacy() {
+        // إخفاء الصفحة الرئيسية وأي صفحة أخرى
+        document.querySelector('.container').classList.add('hidden'); // تأكد إن هذا كلاس صفحتك الرئيسية
+        document.getElementById('contactPage').classList.add('hidden');
+        
+        // إظهار صفحة الخصوصية
+        document.getElementById('privacyPage').classList.remove('hidden');
+        
+        // رفع الشاشة لأعلى الصفحة بسلاسة
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // دالة فتح صفحة تواصل معنا
+    function showContact() {
+        // إخفاء الصفحة الرئيسية والخصوصية
+        document.querySelector('.container').classList.add('hidden');
+        document.getElementById('privacyPage').classList.add('hidden');
+        
+        // إظهار صفحة التواصل
+        document.getElementById('contactPage').classList.remove('hidden');
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // دالة الرجوع للصفحة الرئيسية (مرتبطة بزر الرجوع عندك)
+    function showLanding() {
+        document.getElementById('privacyPage').classList.add('hidden');
+        document.getElementById('contactPage').classList.add('hidden');
+        
+        // إظهار الصفحة الرئيسية
+        document.querySelector('.container').classList.remove('hidden');
+        
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
   </body>
 </html>
