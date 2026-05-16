@@ -2395,7 +2395,7 @@ document.getElementById('streakCount').textContent = streak;
             );
         let result = bank.personalities[maxType];
         let text =
-          "اكتشفت نتيجتي في اختبار 'من أنت اليوم؟' 🔮\n\n" +
+        "اكتشفت نتيجتي في اختبار 'من أنت اليوم؟' 🔮\n\n" +
           result.title +
           "\n\nجرب أنت الاختبار!\nhttps://MahmoudSalam0.github.io/shahsiyatak/";
         if (navigator.share) {
@@ -2413,91 +2413,87 @@ document.getElementById('streakCount').textContent = streak;
             .catch(() => {});
         }
       }
-      // تشغيل إحصائيات الصفحة الرئيسية
-<script>
-    // جلب الإحصائيات الحقيقية للمستخدم عند فتح الصفحة الرئيسية
-    document.addEventListener('DOMContentLoaded', () => {
-        // إذا كان المستخدم جديد، الرقم سيكون 0
+
+      // ✅ جلب الإحصائيات الحقيقية للمستخدم
+      document.addEventListener('DOMContentLoaded', () => {
         let completed = localStorage.getItem('realCompletedTests') || 0;
         let streak = localStorage.getItem('realStreakDays') || 0;
 
-        document.getElementById('totalTests').innerText = completed;
-        document.getElementById('streakDays').innerText = streak;
-    });
-</script>
+        let totalEl = document.getElementById('totalTests');
+        let streakEl = document.getElementById('streakDays');
 
-      <script>
-    let now = new Date();
-    let tomorrow = new Date(now);
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    tomorrow.setHours(0, 0, 0, 0);
-    
-    function update() {
+        if (totalEl) totalEl.innerText = completed;
+        if (streakEl) streakEl.innerText = streak;
+      });
+    </script>
+
+    <script>
+      let now = new Date();
+      let tomorrow = new Date(now);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      tomorrow.setHours(0, 0, 0, 0);
+
+      function update() {
         let diff = tomorrow - new Date();
         let h = Math.floor((diff % 86400000) / 3600000);
         let m = Math.floor((diff % 3600000) / 60000);
         let s = Math.floor((diff % 60000) / 1000);
         let txt = "اختبار جديد بعد " + h + "س " + m + "د " + s + "ث ⏳";
-        
+
         let el1 = document.getElementById("countdown");
         let el2 = document.getElementById("landingCountdown");
-        
+
         if (el1) el1.innerText = txt;
         if (el2) el2.innerText = txt;
-    }
-    
-    function startCountdown() {
+      }
+
+      function startCountdown() {
         update();
         setInterval(update, 1000);
-    }
-    
-    function handleStreak() {
+      }
+
+      function handleStreak() {
         let lastDate = localStorage.getItem("lastPlayDate");
         let streak = parseInt(localStorage.getItem("streak")) || 0;
         let yesterday = new Date();
         yesterday.setDate(yesterday.getDate() - 1);
         let today = new Date().toDateString();
-        
+
         if (lastDate === today) {
-            /* same day */
+          /* same day */
         } else if (lastDate === yesterday.toDateString()) {
-            streak++;
-            localStorage.setItem("streak", streak);
-            localStorage.setItem("lastPlayDate", today);
+          streak++;
+          localStorage.setItem("streak", streak);
+          localStorage.setItem("lastPlayDate", today);
         } else {
-            streak = 1;
-            localStorage.setItem("streak", 1);
-            localStorage.setItem("lastPlayDate", today);
+          streak = 1;
+          localStorage.setItem("streak", 1);
+          localStorage.setItem("lastPlayDate", today);
         }
-        
+
         let el = document.getElementById("streakBox");
         if (el && streak > 1) {
-            el.innerText = "🔥".repeat(Math.min(streak, 5)) + " " + streak + " يوم متتالي";
+          el.innerText = "🔥".repeat(Math.min(streak, 5)) + " " + streak + " يوم متتالي";
         }
-    }
-    
-    function initLanding() {
+      }
+
+      function initLanding() {
         startCountdown();
         handleStreak();
-    }
-    
-    // تشغيل الأكواد عند تحميل الصفحة
-    window.onload = initLanding;
-</script>
-   
-    <script>
-    
+      }
 
-    // دالة الرجوع للصفحة الرئيسية (مرتبطة بزر الرجوع عندك)
-    function showLanding() {
+      window.onload = initLanding;
+    </script>
+
+    <script>
+      function showLanding() {
         document.getElementById('privacyPage').classList.add('hidden');
         document.getElementById('contactPage').classList.add('hidden');
-        
-        // إظهار الصفحة الرئيسية
+
         document.querySelector('.container').classList.remove('hidden');
-        
+
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-</script>
+      }
+    </script>
   </body>
 </html>
