@@ -700,6 +700,7 @@
       }
 
       function showResult() {
+         completeTest();
         document.getElementById("gameSection").classList.add("hidden");
         document.getElementById("resultSection").classList.remove("hidden");
 
@@ -899,34 +900,39 @@
     }
 </script>
 <!-- نهاية قسم المشاركة -->
-    <!-- كود تسجيل إحصائيات المستخدم -->
 <script>
-    function recordTestCompletion() {
-        let total = parseInt(localStorage.getItem('realCompletedTests') || 0);
-        localStorage.setItem('realCompletedTests', total + 1);
+function completeTest() {
 
-        let lastDate = localStorage.getItem('lastTestDate');
-        let today = new Date().toDateString();
-        let streak = parseInt(localStorage.getItem('realStreakDays') || 0);
+    // عدد الاختبارات
+    let completed = parseInt(localStorage.getItem("completedTests")) || 0;
 
-        if (lastDate !== today) { 
-            let yesterday = new Date();
-            yesterday.setDate(yesterday.getDate() - 1);
+    completed++;
 
-            if (lastDate === yesterday.toDateString()) {
-                streak++; 
-            } else {
-                streak = 1; 
-            }
-            localStorage.setItem('realStreakDays', streak);
-            localStorage.setItem('lastTestDate', today);
+    localStorage.setItem("completedTests", completed);
+
+    // الستريك
+    let today = new Date().toDateString();
+
+    let lastDate = localStorage.getItem("lastPlayDate");
+
+    let streak = parseInt(localStorage.getItem("streak")) || 0;
+
+    let yesterday = new Date();
+
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    if (lastDate !== today) {
+
+        if (lastDate === yesterday.toDateString()) {
+            streak++;
+        } else {
+            streak = 1;
         }
-    }
 
-    // تشغيل الكود عند فتح صفحة الاختبار
-    window.onload = function() {
-        recordTestCompletion();
-    };
+        localStorage.setItem("streak", streak);
+        localStorage.setItem("lastPlayDate", today);
+    }
+}
 </script>
   </body>
 </html>
