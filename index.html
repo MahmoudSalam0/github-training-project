@@ -699,22 +699,42 @@
         animation: fadeInUp 0.4s ease;
       }
 
-      .back-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        color: #888;
-        font-size: 13px;
-        cursor: pointer;
-        margin-bottom: 16px;
-        background: none;
-        border: none;
-        font-family: inherit;
-        transition: 0.2s;
-      }
-      .back-link:hover {
-        color: #fff;
-      }
+     .back-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    width: fit-content;
+
+    margin: 0 auto 20px auto;
+
+    padding: 12px 22px;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 14px;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    backdrop-filter: blur(8px);
+}
+
+.back-link:hover {
+    background: rgba(255,255,255,0.15);
+
+    transform: translateY(-2px);
+}
     </style>
 
     <!-- SEO & Schema -->
@@ -993,8 +1013,10 @@ document.addEventListener("DOMContentLoaded", () => {
       <!-- ============================================ -->
       <div id="gameSection" class="game-section hidden">
         <button class="back-link" onclick="showLanding()">
-          ← العودة للرئيسية
-        </button>
+    <span style="font-size:22px;">⬅️</span>
+    <span>العودة للرئيسية</span>
+</button>
+
         <h1 class="logo">🔮 من أنت اليوم؟</h1>
         <div class="sub-logo">اكتشف جانب جديد من شخصيتك كل يوم</div>
         <div class="badge" id="themeTitle"></div>
@@ -2127,13 +2149,11 @@ document.addEventListener("DOMContentLoaded", () => {
       todayBank.types.forEach((t) => (scores[t] = 0));
 
       function getPlayersCount() {
-        let base = 1247;
-        let dayOfYear = Math.floor(
-          (new Date() - new Date(new Date().getFullYear(), 0, 0)) /
-            (1000 * 60 * 60 * 24),
-        );
-        return base + dayOfYear * 23;
-      }
+
+    let count = parseInt(localStorage.getItem("playersCount")) || 0;
+
+    return count;
+}
 
       // ===== Navigation =====
       function goToTest(testName) {
@@ -2370,6 +2390,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         saveResult(maxType);
         completeTest();
+        let players = parseInt(localStorage.getItem("playersCount")) || 0;
+
+localStorage.setItem("playersCount", players + 1);
         localStorage.removeItem("gameProgress");
         localStorage.setItem("challengeDate", today);
 
@@ -2548,15 +2571,6 @@ document.addEventListener("DOMContentLoaded", () => {
       window.onload = initLanding;
     </script>
 
-    <script>
-      function showLanding() {
-        document.getElementById('privacyPage').classList.add('hidden');
-        document.getElementById('contactPage').classList.add('hidden');
-
-        document.querySelector('.container').classList.remove('hidden');
-
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    </script>
+   
   </body>
 </html>
