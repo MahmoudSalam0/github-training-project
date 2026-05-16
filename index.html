@@ -5,20 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>من أنت اليوم؟ | اختبار شخصية يومي</title>
     <!-- قسم الإحصائيات -->
-<div class="stats-section">
-    <div class="stat-card">
-        <div class="stat-number" id="totalTests">0</div>
-        <div class="stat-label">اختبار مكتمل</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number" id="streakDays">0</div>
-        <div class="stat-label">يوم متتالي</div>
-    </div>
-    <div class="stat-card">
-        <div class="stat-number">4</div> <!-- غيّر الرقم حسب عدد اختباراتك -->
-        <div class="stat-label">اختبارات متاحة</div>
-    </div>
-</div>
+
     <meta
       name="description"
       content="اكتشف جانب جديد من شخصيتك كل يوم! اختبار يومي ممتع يحلل شخصيتك في الحب، القرار، الضغط، الثقة، القيادة والمغامرة. جربه الآن مجانًا!"
@@ -684,33 +671,7 @@
       .contact-icon {
         font-size: 22px;
       }
-      <!-- إحصائيات سريعة -->
-<div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; margin: 30px 0; text-align: center;">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px;">
-        <div>
-            <div style="font-size: 2.5em; font-weight: bold; color: #48bb78;" id="testCount">0</div>
-            <div style="color: rgba(255,255,255,0.8);">اختبار مكتمل</div>
-        </div>
-        <div>
-            <div style="font-size: 2.5em; font-weight: bold; color: #f56565;" id="streakCount">0</div>
-            <div style="color: rgba(255,255,255,0.8);">يوم متتالي</div>
-        </div>
-        <div>
-            <div style="font-size: 2.5em; font-weight: bold; color: #4299e1;">5</div>
-            <div style="color: rgba(255,255,255,0.8);">اختبار متاح</div>
-        </div>
-    </div>
-</div>
-
-<script>
-// عرض الإحصائيات
-const completedTests = parseInt(localStorage.getItem('completedTests') || '0');
-document.getElementById('testCount').textContent = completedTests;
-
-// Streak (إذا موجود)
-const streak = parseInt(localStorage.getItem('streak') || '0');
-document.getElementById('streakCount').textContent = streak;
-</script>
+ 
 
       /* ========= FOOTER ========= */
       .footer {
@@ -774,9 +735,111 @@ document.getElementById('streakCount').textContent = streak;
 </script>
     
   </head>
+<script>
+/* =========================================
+   ✅ نظام الإحصائيات الموحد
+========================================= */
 
+// إنشاء البيانات أول مرة
+if (!localStorage.getItem("completedTests")) {
+    localStorage.setItem("completedTests", "0");
+}
+
+if (!localStorage.getItem("streak")) {
+    localStorage.setItem("streak", "0");
+}
+
+if (!localStorage.getItem("lastPlayDate")) {
+    localStorage.setItem("lastPlayDate", "");
+}
+
+/* =========================================
+   ✅ تحديث الإحصائيات بالواجهة
+========================================= */
+
+function updateStatsUI() {
+
+    let completed = parseInt(localStorage.getItem("completedTests")) || 0;
+    let streak = parseInt(localStorage.getItem("streak")) || 0;
+
+    let totalEl = document.getElementById("totalTests");
+    let streakEl = document.getElementById("streakDays");
+
+    if (totalEl) {
+        totalEl.innerText = completed;
+    }
+
+    if (streakEl) {
+        streakEl.innerText = streak;
+    }
+}
+
+/* =========================================
+   ✅ زيادة الإحصائيات بعد إنهاء اختبار
+========================================= */
+
+function completeTest() {
+
+    // زيادة عدد الاختبارات
+    let completed = parseInt(localStorage.getItem("completedTests")) || 0;
+
+    completed++;
+
+    localStorage.setItem("completedTests", completed);
+
+    // تحديث الستريك
+    let today = new Date().toDateString();
+
+    let lastDate = localStorage.getItem("lastPlayDate");
+
+    let streak = parseInt(localStorage.getItem("streak")) || 0;
+
+    let yesterday = new Date();
+
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    // إذا أول مرة اليوم
+    if (lastDate !== today) {
+
+        if (lastDate === yesterday.toDateString()) {
+            streak++;
+        } else {
+            streak = 1;
+        }
+
+        localStorage.setItem("streak", streak);
+        localStorage.setItem("lastPlayDate", today);
+    }
+
+    updateStatsUI();
+}
+
+/* =========================================
+   ✅ تحميل الإحصائيات عند فتح الموقع
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    updateStatsUI();
+
+});
+</script>
   <body>
     <div class="container">
+      <div class="stats-section">
+    <div class="stat-card">
+        <div class="stat-number" id="totalTests">0</div>
+        <div class="stat-label">اختبار مكتمل</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number" id="streakDays">0</div>
+        <div class="stat-label">يوم متتالي</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">4</div> <!-- غيّر الرقم حسب عدد اختباراتك -->
+        <div class="stat-label">اختبارات متاحة</div>
+    </div>
+</div>
       <!-- ============================================ -->
       <!-- ✅ صفحة الهبوط الرئيسية -->
       <!-- ============================================ -->
@@ -2306,6 +2369,7 @@ document.getElementById('streakCount').textContent = streak;
         document.getElementById("shareBtnFinal").classList.remove("hidden");
 
         saveResult(maxType);
+        completeTest();
         localStorage.removeItem("gameProgress");
         localStorage.setItem("challengeDate", today);
 
@@ -2416,8 +2480,7 @@ document.getElementById('streakCount').textContent = streak;
 
       // ✅ جلب الإحصائيات الحقيقية للمستخدم
       document.addEventListener('DOMContentLoaded', () => {
-        let completed = localStorage.getItem('realCompletedTests') || 0;
-        let streak = localStorage.getItem('realStreakDays') || 0;
+  
 
         let totalEl = document.getElementById('totalTests');
         let streakEl = document.getElementById('streakDays');
