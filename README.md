@@ -28,14 +28,33 @@ https://mahmoudsalam0.github.io/shahsiyatak/
 
 ## Project Structure
 
-```bash
-shahsiyatak/
+```text
+shahshiyatak/
+│
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   └── script.js
+│   ├── images/
+│   │   └── og-image.jpg
+│   └── icons/
+│       └── [All Favicon & App Icons]
+│
+├── pages/
+│   ├── confidence-test.html
+│   ├── eq-test.html
+│   ├── job-test.html
+│   └── personality-test.html
+│
+├── screenshots/
+│   └── home-page.png
 │
 ├── index.html
-├── style.css
-├── script.js
-├── screenshots/
-└ README.md
+├── about.html
+├── contact.html
+├── privacy.html
+└── README.md
 ```
 
 ## Screenshots

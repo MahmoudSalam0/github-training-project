@@ -1,0 +1,1020 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>اختبار نوع الشخصية - Big Five | شخصيتك</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="اكتشف سماتك الشخصية الخمس الكبرى: الانفتاح، الضمير، الانبساط، التوافق، والاستقرار العاطفي - اختبار علمي دقيق"
+    />
+    <meta
+      name="keywords"
+      content="اختبار الشخصية, Big Five, السمات الخمس الكبرى, تحليل الشخصية, اختبار نفسي"
+    />
+    <meta name="author" content="شخصيتك" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="اختبار نوع الشخصية - Big Five | شخصيتك"
+    />
+    <meta
+      property="og:description"
+      content="اكتشف سماتك الشخصية الخمس الكبرى في اختبار علمي شامل"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://mahmoudsalam0.github.io/shahsiyatak/personality-test.html"
+    />
+    <meta
+      property="og:image"
+      content="https://mahmoudsalam0.github.io/shahsiyatak/og-image.jpg"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="اختبار نوع الشخصية - Big Five" />
+    <meta
+      name="twitter:description"
+      content="اكتشف سماتك الشخصية الخمس الكبرى"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/icons/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icons/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="assets/icons/site.webmanifest" />
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M8K2P7Q1N5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-M8K2P7Q1N5");
+    </script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+        color: #333;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+        animation: fadeInDown 0.8s ease;
+      }
+
+      .header h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .header p {
+        font-size: 1.1em;
+        opacity: 0.95;
+      }
+
+      .home-btn {
+        display: inline-block;
+        margin-bottom: 20px;
+        padding: 10px 20px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        text-decoration: none;
+        border-radius: 25px;
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .home-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .test-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 0.8s ease;
+      }
+
+      .intro-section {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .intro-section h2 {
+        color: #667eea;
+        margin-bottom: 15px;
+        font-size: 1.8em;
+      }
+
+      .traits-preview {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+        margin: 25px 0;
+      }
+
+      .trait-badge {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px;
+        border-radius: 12px;
+        text-align: center;
+        font-weight: bold;
+        transition: transform 0.3s ease;
+      }
+
+      .trait-badge:hover {
+        transform: translateY(-5px);
+      }
+
+      .question-container {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+
+      .question-container.active {
+        display: block;
+      }
+
+      .progress-bar {
+        background: #e0e0e0;
+        height: 8px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        transition: width 0.3s ease;
+        border-radius: 10px;
+      }
+
+      .question-number {
+        color: #667eea;
+        font-weight: bold;
+        margin-bottom: 15px;
+        font-size: 0.9em;
+      }
+
+      .question-text {
+        font-size: 1.3em;
+        margin-bottom: 25px;
+        color: #333;
+        font-weight: 500;
+        line-height: 1.6;
+      }
+
+      .answers {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .answer-btn {
+        padding: 18px 25px;
+        border: 2px solid #e0e0e0;
+        background: white;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1em;
+        text-align: right;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .answer-btn:hover {
+        border-color: #667eea;
+        background: #f8f9ff;
+        transform: translateX(-5px);
+      }
+
+      .answer-btn.selected {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border-color: #667eea;
+      }
+
+      .start-btn,
+      .next-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        font-size: 1.1em;
+        border-radius: 30px;
+        cursor: pointer;
+        display: block;
+        margin: 30px auto;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+      }
+
+      .start-btn:hover,
+      .next-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+      }
+
+      .next-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .results {
+        display: none;
+        animation: fadeIn 0.8s ease;
+      }
+
+      .results.active {
+        display: block;
+      }
+
+      .result-header {
+        text-align: center;
+        margin-bottom: 35px;
+      }
+
+      .result-header h2 {
+        color: #667eea;
+        font-size: 2.2em;
+        margin-bottom: 15px;
+      }
+
+      .trait-result {
+        margin-bottom: 30px;
+        padding: 20px;
+        background: #f8f9ff;
+        border-radius: 15px;
+        border-right: 5px solid #667eea;
+      }
+
+      .trait-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .trait-name {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .trait-score {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #667eea;
+      }
+
+      .trait-bar-container {
+        background: #e0e0e0;
+        height: 25px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 10px;
+      }
+
+      .trait-bar-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        border-radius: 12px;
+        transition: width 1s ease;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-left: 10px;
+        color: white;
+        font-weight: bold;
+        font-size: 0.85em;
+      }
+
+      .trait-description {
+        color: #666;
+        line-height: 1.6;
+        margin-top: 10px;
+      }
+
+      .personality-summary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 25px;
+        border-radius: 15px;
+        margin: 25px 0;
+        text-align: center;
+      }
+
+      .personality-summary h3 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .action-btn {
+        padding: 12px 30px;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .share-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .retry-btn {
+        background: white;
+        color: #667eea;
+        border: 2px solid #667eea;
+      }
+
+      .home-result-btn {
+        background: #48bb78;
+        color: white;
+      }
+
+      .action-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header h1 {
+          font-size: 1.8em;
+        }
+
+        .test-card {
+          padding: 25px;
+        }
+
+        .question-text {
+          font-size: 1.1em;
+        }
+
+        .traits-preview {
+          grid-template-columns: 1fr;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+        }
+
+        .action-btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="../index.html" class="home-btn">← العودة للرئيسية</a>
+
+      <div class="header">
+        <h1>🎭 اختبار نوع الشخصية</h1>
+        <p>اكتشف سماتك الشخصية الخمس الكبرى (Big Five)</p>
+      </div>
+
+      <div class="test-card">
+        <!-- Intro Section -->
+        <div id="introSection" class="intro-section">
+          <h2>اختبار السمات الخمس الكبرى للشخصية</h2>
+          <p style="color: #666; line-height: 1.8; margin: 20px 0">
+            هذا الاختبار يقيس أبرز 5 سمات في شخصيتك بناءً على النموذج النفسي
+            العلمي "Big Five". سيساعدك على فهم نفسك بشكل أعمق ومعرفة نقاط قوتك
+            ومجالات التطوير.
+          </p>
+
+          <div class="traits-preview">
+            <div class="trait-badge">🌟 الانفتاح</div>
+            <div class="trait-badge">✅ الضمير</div>
+            <div class="trait-badge">🎉 الانبساط</div>
+            <div class="trait-badge">🤝 التوافق</div>
+            <div class="trait-badge">😌 الاستقرار</div>
+          </div>
+
+          <p style="color: #999; font-size: 0.9em">
+            ⏱️ المدة: 5-7 دقائق | 📝 عدد الأسئلة: 25 سؤال
+          </p>
+
+          <button class="start-btn" onclick="startTest()">
+            ابدأ الاختبار الآن
+          </button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div id="progressSection" class="hidden">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <!-- Questions Container -->
+        <div id="questionsContainer"></div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="results">
+          <div class="result-header">
+            <h2>🎯 نتيجة تحليل شخصيتك</h2>
+            <p style="color: #666">تعرّف على سماتك الشخصية الخمس الكبرى</p>
+          </div>
+
+          <div id="traitsResults"></div>
+
+          <div class="personality-summary" id="personalitySummary"></div>
+
+          <div class="action-buttons">
+            <button class="action-btn share-btn" onclick="shareResults()">
+              📤 مشاركة النتيجة
+            </button>
+            <button class="action-btn retry-btn" onclick="retryTest()">
+              🔄 إعادة الاختبار
+            </button>
+            <a href="index.html" class="action-btn home-result-btn"
+              >🏠 العودة للرئيسية</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confetti Script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+      // Confetti fallback
+      if (typeof confetti === "undefined") {
+        window.confetti = function () {
+          return Promise.resolve();
+        };
+      }
+
+      // Big Five Personality Test Questions
+      const questions = [
+        {
+          id: 1,
+          text: "أحب تجربة أشياء جديدة ومختلفة في حياتي",
+          trait: "openness",
+          reverse: false,
+        },
+        {
+          id: 2,
+          text: "أفضل الالتزام بالطرق التقليدية بدلاً من التجديد",
+          trait: "openness",
+          reverse: true,
+        },
+        {
+          id: 3,
+          text: "أستمتع بالنقاشات الفلسفية والفكرية العميقة",
+          trait: "openness",
+          reverse: false,
+        },
+        {
+          id: 4,
+          text: "أهتم بالفنون والموسيقى والثقافة بشكل عام",
+          trait: "openness",
+          reverse: false,
+        },
+        {
+          id: 5,
+          text: "أشعر بالراحة عند اتباع روتين يومي ثابت",
+          trait: "openness",
+          reverse: true,
+        },
+
+        {
+          id: 6,
+          text: "أنجز مهامي دائماً في الوقت المحدد",
+          trait: "conscientiousness",
+          reverse: false,
+        },
+        {
+          id: 7,
+          text: "أميل إلى تأجيل الأعمال المهمة",
+          trait: "conscientiousness",
+          reverse: true,
+        },
+        {
+          id: 8,
+          text: "أحب التخطيط والتنظيم قبل البدء بأي مشروع",
+          trait: "conscientiousness",
+          reverse: false,
+        },
+        {
+          id: 9,
+          text: "أهتم بالتفاصيل الدقيقة في عملي",
+          trait: "conscientiousness",
+          reverse: false,
+        },
+        {
+          id: 10,
+          text: "أشعر بالراحة مع العشوائية والارتجال",
+          trait: "conscientiousness",
+          reverse: true,
+        },
+
+        {
+          id: 11,
+          text: "أشعر بالنشاط عندما أكون محاطاً بالناس",
+          trait: "extraversion",
+          reverse: false,
+        },
+        {
+          id: 12,
+          text: "أفضل قضاء الوقت بمفردي على التجمعات",
+          trait: "extraversion",
+          reverse: true,
+        },
+        {
+          id: 13,
+          text: "أجد سهولة في بدء محادثات مع الغرباء",
+          trait: "extraversion",
+          reverse: false,
+        },
+        {
+          id: 14,
+          text: "أحب أن أكون محور الاهتمام في التجمعات",
+          trait: "extraversion",
+          reverse: false,
+        },
+        {
+          id: 15,
+          text: "أحتاج إلى وقت خاص بي لإعادة شحن طاقتي",
+          trait: "extraversion",
+          reverse: true,
+        },
+
+        {
+          id: 16,
+          text: "أضع احتياجات الآخرين قبل احتياجاتي الشخصية",
+          trait: "agreeableness",
+          reverse: false,
+        },
+        {
+          id: 17,
+          text: "أميل للتشكيك في نوايا الآخرين",
+          trait: "agreeableness",
+          reverse: true,
+        },
+        {
+          id: 18,
+          text: "أتعاطف بسهولة مع مشاعر الآخرين",
+          trait: "agreeableness",
+          reverse: false,
+        },
+        {
+          id: 19,
+          text: "أفضل التعاون على المنافسة",
+          trait: "agreeableness",
+          reverse: false,
+        },
+        {
+          id: 20,
+          text: "أعبّر عن رأيي بصراحة حتى لو أزعج الآخرين",
+          trait: "agreeableness",
+          reverse: true,
+        },
+
+        {
+          id: 21,
+          text: "أشعر بالقلق من الأمور الصغيرة بسهولة",
+          trait: "neuroticism",
+          reverse: false,
+        },
+        {
+          id: 22,
+          text: "أحافظ على هدوئي في المواقف الضاغطة",
+          trait: "neuroticism",
+          reverse: true,
+        },
+        {
+          id: 23,
+          text: "تتقلب حالتي المزاجية بشكل متكرر",
+          trait: "neuroticism",
+          reverse: false,
+        },
+        {
+          id: 24,
+          text: "نادراً ما أشعر بالحزن أو الاكتئاب",
+          trait: "neuroticism",
+          reverse: true,
+        },
+        {
+          id: 25,
+          text: "أقلق كثيراً بشأن المستقبل",
+          trait: "neuroticism",
+          reverse: false,
+        },
+      ];
+
+      const answerOptions = [
+        { text: "لا أوافق بشدة", value: 1 },
+        { text: "لا أوافق", value: 2 },
+        { text: "محايد", value: 3 },
+        { text: "أوافق", value: 4 },
+        { text: "أوافق بشدة", value: 5 },
+      ];
+
+      let currentQuestion = 0;
+      let answers = {};
+      let scores = {
+        openness: 0,
+        conscientiousness: 0,
+        extraversion: 0,
+        agreeableness: 0,
+        neuroticism: 0,
+      };
+
+      const traitNames = {
+        openness: "الانفتاح على التجارب",
+        conscientiousness: "الضمير والانضباط",
+        extraversion: "الانبساط والتواصل",
+        agreeableness: "التوافق مع الآخرين",
+        neuroticism: "الاستقرار العاطفي",
+      };
+
+      const traitDescriptions = {
+        openness: {
+          high: "أنت شخص منفتح على التجارب الجديدة، تحب الإبداع والخيال، وتستمتع باستكشاف أفكار وثقافات مختلفة.",
+          medium: "لديك توازن جيد بين الانفتاح على الجديد والالتزام بالمألوف.",
+          low: "تفضل الطرق التقليدية والمجربة، وتشعر بالراحة مع الروتين والقواعد الواضحة.",
+        },
+        conscientiousness: {
+          high: "أنت شخص منظم ومنضبط، تتميز بالمسؤولية والإصرار. يمكن الاعتماد عليك دائماً.",
+          medium: "لديك قدرة جيدة على التنظيم عند الحاجة مع مرونة في التكيّف.",
+          low: "تتميز بالعفوية والمرونة، وتفضل الارتجال على التخطيط المسبق.",
+        },
+        extraversion: {
+          high: "أنت شخص اجتماعي ومنفتح، تستمد طاقتك من التفاعل مع الآخرين.",
+          medium: "أنت متوازن بين الانطواء والانبساط (Ambivert).",
+          low: "أنت شخص هادئ ومتحفظ، تفضل التفاعلات العميقة مع عدد قليل من الأشخاص.",
+        },
+        agreeableness: {
+          high: "أنت شخص متعاون ومتعاطف، تهتم بمشاعر الآخرين وتسعى للانسجام.",
+          medium: "لديك توازن بين التعاون والحزم.",
+          low: "أنت شخص صريح ومستقل، تضع مصالحك أولاً وتعبر عن رأيك بوضوح.",
+        },
+        neuroticism: {
+          high: "تتمتع باستقرار عاطفي عالٍ، تواجه الضغوط بهدوء وتحافظ على توازنك.",
+          medium: "لديك قدرة معتدلة على التعامل مع التوتر.",
+          low: "تميل للتأثر العاطفي والقلق من الضغوطات.",
+        },
+      };
+
+      function startTest() {
+        document.getElementById("introSection").classList.add("hidden");
+        document.getElementById("progressSection").classList.remove("hidden");
+        renderQuestion();
+
+        if (typeof gtag !== "undefined") {
+          gtag("event", "start_test", { test_type: "personality_bigfive" });
+        }
+      }
+
+      function renderQuestion() {
+        const container = document.getElementById("questionsContainer");
+        const question = questions[currentQuestion];
+
+        container.innerHTML = `
+                <div class="question-container active">
+                    <div class="question-number">السؤال ${currentQuestion + 1} من ${questions.length}</div>
+                    <div class="question-text">${question.text}</div>
+                    <div class="answers">
+                        ${answerOptions
+                          .map(
+                            (option) => `
+                            <button class="answer-btn" onclick="selectAnswer(${option.value})">
+                                ${option.text}
+                            </button>
+                        `,
+                          )
+                          .join("")}
+                    </div>
+                    <button class="next-btn" id="nextBtn" onclick="nextQuestion()" disabled>
+                        ${currentQuestion === questions.length - 1 ? "عرض النتيجة" : "السؤال التالي"}
+                    </button>
+                </div>
+            `;
+
+        updateProgress();
+      }
+
+      function selectAnswer(value) {
+        const buttons = document.querySelectorAll(".answer-btn");
+        buttons.forEach((btn) => btn.classList.remove("selected"));
+        event.target.classList.add("selected");
+
+        answers[currentQuestion] = value;
+        document.getElementById("nextBtn").disabled = false;
+      }
+
+      function updateProgress() {
+        const progress = ((currentQuestion + 1) / questions.length) * 100;
+        document.getElementById("progressFill").style.width = progress + "%";
+      }
+
+      function nextQuestion() {
+        if (currentQuestion < questions.length - 1) {
+          currentQuestion++;
+          renderQuestion();
+        } else {
+          calculateResults();
+          showResults();
+        }
+      }
+
+      function calculateResults() {
+        Object.keys(scores).forEach((key) => (scores[key] = 0));
+
+        questions.forEach((question, index) => {
+          const answer = answers[index];
+          const score = question.reverse ? 6 - answer : answer;
+          scores[question.trait] += score;
+        });
+
+        Object.keys(scores).forEach((trait) => {
+          scores[trait] = Math.round((scores[trait] / 25) * 100);
+        });
+
+        scores.neuroticism = 100 - scores.neuroticism;
+
+        localStorage.setItem(
+          "personalityTestResults",
+          JSON.stringify({
+            scores: scores,
+            date: new Date().toISOString(),
+          }),
+        );
+      }
+
+      function showResults() {
+        completeTest();
+        document.getElementById("questionsContainer").style.display = "none";
+        document.getElementById("progressSection").classList.add("hidden");
+        document.getElementById("resultsSection").classList.add("active");
+
+        renderTraitResults();
+        renderSummary();
+
+        if (typeof confetti === "function") {
+          try {
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+          } catch (e) {}
+        }
+
+        if (typeof gtag !== "undefined") {
+          gtag("event", "complete_test", { test_type: "personality_bigfive" });
+        }
+      }
+
+      function renderTraitResults() {
+        const container = document.getElementById("traitsResults");
+        let html = "";
+
+        Object.keys(scores).forEach((trait) => {
+          const score = scores[trait];
+          const level = score >= 70 ? "high" : score >= 40 ? "medium" : "low";
+
+          html += `
+                    <div class="trait-result">
+                        <div class="trait-header">
+                            <span class="trait-name">${traitNames[trait]}</span>
+                            <span class="trait-score">${score}%</span>
+                        </div>
+                        <div class="trait-bar-container">
+                            <div class="trait-bar-fill" style="width: ${score}%">
+                                ${score}%
+                            </div>
+                        </div>
+                        <div class="trait-description">
+                            ${traitDescriptions[trait][level]}
+                        </div>
+                    </div>
+                `;
+        });
+
+        container.innerHTML = html;
+      }
+
+      function renderSummary() {
+        const avgScore = Math.round(
+          Object.values(scores).reduce((a, b) => a + b, 0) / 5,
+        );
+        const summary = document.getElementById("personalitySummary");
+        summary.innerHTML = `
+                <h3>🎯 ملخص شخصيتك</h3>
+                <p style="font-size: 1.1em; margin: 15px 0;">
+                    بناءً على النموذج العلمي Big Five، حققت متوسط نقاط ${avgScore}% 
+                    عبر السمات الخمس الكبرى للشخصية.
+                </p>
+            `;
+      }
+
+      function shareResults() {
+        const avgScore = Math.round(
+          Object.values(scores).reduce((a, b) => a + b, 0) / 5,
+        );
+        const text = `🎭 أكملت اختبار السمات الخمس الكبرى للشخصية!\n\nنتيجتي: ${avgScore}%\n\nاكتشف شخصيتك على:`;
+        const url = window.location.href;
+
+        if (navigator.share) {
+          navigator
+            .share({ title: "نتيجة اختبار الشخصية", text: text, url: url })
+            .catch(() => fallbackShare(text, url));
+        } else {
+          fallbackShare(text, url);
+        }
+      }
+
+      function fallbackShare(text, url) {
+        const fullText = `${text}\n${url}`;
+        if (navigator.clipboard) {
+          navigator.clipboard.writeText(fullText).then(() => {
+            alert("✅ تم نسخ النتيجة! يمكنك مشاركتها الآن");
+          });
+        } else {
+          prompt("انسخ هذا النص للمشاركة:", fullText);
+        }
+      }
+
+      function retryTest() {
+        currentQuestion = 0;
+        answers = {};
+        document.getElementById("resultsSection").classList.remove("active");
+        document.getElementById("introSection").classList.remove("hidden");
+
+        if (typeof gtag !== "undefined") {
+          gtag("event", "retry_test", { test_type: "personality_bigfive" });
+        }
+      }
+
+      window.addEventListener("beforeunload", function (e) {
+        if (currentQuestion > 0 && currentQuestion < questions.length) {
+          e.preventDefault();
+          e.returnValue = "";
+        }
+      });
+    </script>
+    <!-- قسم مشاركة النتيجة -->
+    <div style="text-align: center; margin-top: 30px; margin-bottom: 30px">
+      <button
+        onclick="shareWhatsApp()"
+        style="
+          background-color: #25d366;
+          color: white;
+          border: none;
+          padding: 12px 25px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: bold;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: 0.3s;
+        "
+      >
+        💬 شارك نتيجتك على واتساب
+      </button>
+    </div>
+
+    <script>
+      // وظيفة زر الواتساب
+      function shareWhatsApp() {
+        const testName = document.title; // بياخذ اسم الاختبار من عنوان الصفحة
+        const pageUrl = window.location.href; // بياخذ رابط الصفحة
+        const text = encodeURIComponent(
+          `🧠 جربت هذا الاختبار الرائع: "${testName}" على موقع شخصيتك! جربه أنت كمان واكتشف نفسك من هنا:\n${pageUrl}`,
+        );
+        window.open(`https://wa.me/?text=${text}`, "_blank");
+      }
+    </script>
+    <!-- نهاية قسم المشاركة -->
+    <script>
+      function completeTest() {
+        // عدد الاختبارات
+        let completed = parseInt(localStorage.getItem("completedTests")) || 0;
+
+        completed++;
+
+        localStorage.setItem("completedTests", completed);
+
+        // الستريك
+        let today = new Date().toDateString();
+
+        let lastDate = localStorage.getItem("lastPlayDate");
+
+        let streak = parseInt(localStorage.getItem("streak")) || 0;
+
+        let yesterday = new Date();
+
+        yesterday.setDate(yesterday.getDate() - 1);
+
+        if (lastDate !== today) {
+          if (lastDate === yesterday.toDateString()) {
+            streak++;
+          } else {
+            streak = 1;
+          }
+
+          localStorage.setItem("streak", streak);
+          localStorage.setItem("lastPlayDate", today);
+        }
+      }
+    </script>
+  </body>
+</html>
