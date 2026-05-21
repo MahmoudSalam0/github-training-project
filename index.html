@@ -45,7 +45,7 @@
       name="twitter:image"
       content="https://MahmoudSalam0.github.io/shahsiyatak/og-image.png"
     />
-    
+
     <meta property="og:title" content="شخصيتك - اختبارات شخصية يومية" />
     <meta
       property="og:description"
@@ -64,7 +64,6 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="شخصيتك - اختبارات شخصية" />
 
-   
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="شخصيتك - اختبارات شخصية يومية" />
     <meta
@@ -76,8 +75,12 @@
       content="https://mahmoudsalam0.github.io/shahsiyatak/og-image.jpg"
     />
 
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="assets/icons/favicon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icons/apple-touch-icon.png"
+    />
     <link rel="manifest" href="site.webmanifest" />
     <meta name="theme-color" content="#0f0f0f" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -102,8 +105,8 @@
       gtag("config", "G-8Z7P9R6FB5");
     </script>
 
-    <link rel="stylesheet" href="style.css" />
-    
+    <link rel="stylesheet" href="assets/css/style.css" />
+
     <link rel="canonical" href="https://mahmoudsalam0.github.io/shahsiyatak/" />
     <script type="application/ld+json">
       {
@@ -121,9 +124,6 @@
     </script>
   </head>
   <script>
- 
-
-    
     if (!localStorage.getItem("completedTests")) {
       localStorage.setItem("completedTests", "0");
     }
@@ -135,8 +135,6 @@
     if (!localStorage.getItem("lastPlayDate")) {
       localStorage.setItem("lastPlayDate", "");
     }
-
-    
 
     function updateStatsUI() {
       let completed = parseInt(localStorage.getItem("completedTests")) || 0;
@@ -153,8 +151,6 @@
         streakEl.innerText = streak;
       }
     }
-
-   
 
     function completeTest() {
       let completed = parseInt(localStorage.getItem("completedTests")) || 0;
@@ -206,7 +202,7 @@
           <div class="stat-label">اختبارات متاحة</div>
         </div>
       </div>
-      
+
       <div id="landingPage" class="hero">
         <span class="hero-logo">🔮</span>
         <div class="hero-title">من أنت اليوم؟</div>
@@ -262,7 +258,7 @@
 
         <div class="tests-grid">
           <a
-            href="eq-test.html"
+            href="pages/eq-test.html"
             class="test-card card-eq"
             style="text-decoration: none; color: inherit; cursor: pointer"
           >
@@ -281,7 +277,7 @@
           </a>
 
           <a
-            href="job-test.html"
+            href="pages/job-test.html"
             class="test-card card-job"
             style="text-decoration: none; color: inherit; cursor: pointer"
           >
@@ -300,7 +296,7 @@
           </a>
 
           <a
-            href="personality-test.html"
+            href="pages/personality-test.html"
             class="test-card card-personality"
             style="text-decoration: none; color: inherit; cursor: pointer"
           >
@@ -320,7 +316,7 @@
           </a>
 
           <a
-            href="confidence-test.html"
+            href="pages/confidence-test.html"
             class="test-card card-confidence"
             style="text-decoration: none; color: inherit; cursor: pointer"
           >
@@ -345,7 +341,6 @@
         </div>
       </div>
 
-      
       <div id="gameSection" class="game-section hidden">
         <button class="back-link" onclick="showLanding()">
           <span style="font-size: 22px">⬅️</span>
@@ -427,7 +422,6 @@
         </div>
       </div>
 
-      
       <div id="privacyPage" class="inner-page hidden">
         <h1 style="color: #ff416c">🔒 سياسة الخصوصية</h1>
 
@@ -482,7 +476,6 @@
         </button>
       </div>
 
-      
       <div id="contactPage" class="inner-page hidden">
         <h1 style="color: #ff416c">💬 تواصل معنا</h1>
         <p style="color: #aaa; margin-bottom: 20px; line-height: 1.8">
@@ -548,6 +541,6 @@
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>

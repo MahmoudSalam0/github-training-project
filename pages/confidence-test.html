@@ -27,8 +27,10 @@
       property="og:url"
       content="https://mahmoudsalam0.github.io/shahsiyatak/confidence-test.html"
     />
-    <meta property="og:image" content="https://mahmoudsalam0.github.io/shahsiyatak/og-image.jpg">
-
+    <meta
+      property="og:image"
+      content="https://mahmoudsalam0.github.io/shahsiyatak/og-image.jpg"
+    />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -39,11 +41,25 @@
     />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/icons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/icons/favicon-16x16.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/icons/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="assets/icons/site.webmanifest" />
 
     <!-- Google Analytics -->
     <script
@@ -510,7 +526,7 @@
   </head>
   <body>
     <div class="container">
-      <a href="index.html" class="home-btn">← العودة للرئيسية</a>
+      <a href="../index.html" class="home-btn">← العودة للرئيسية</a>
 
       <div class="header">
         <h1>💪 اختبار الثقة بالنفس</h1>
@@ -878,7 +894,7 @@
       }
 
       function showResults() {
-         completeTest();
+        completeTest();
         document.getElementById("questionsContainer").style.display = "none";
         document.getElementById("progressSection").style.display = "none";
         document.getElementById("resultsSection").classList.add("active");
@@ -1105,55 +1121,69 @@
       });
     </script>
     <!-- قسم مشاركة النتيجة -->
-<div style="text-align: center; margin-top: 30px; margin-bottom: 30px;">
-    <button onclick="shareWhatsApp()" style="background-color: #25D366; color: white; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s;">
+    <div style="text-align: center; margin-top: 30px; margin-bottom: 30px">
+      <button
+        onclick="shareWhatsApp()"
+        style="
+          background-color: #25d366;
+          color: white;
+          border: none;
+          padding: 12px 25px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: bold;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          transition: 0.3s;
+        "
+      >
         💬 شارك نتيجتك على واتساب
-    </button>
-</div>
+      </button>
+    </div>
 
-<script>
-    // وظيفة زر الواتساب
-    function shareWhatsApp() {
+    <script>
+      // وظيفة زر الواتساب
+      function shareWhatsApp() {
         const testName = document.title; // بياخذ اسم الاختبار من عنوان الصفحة
         const pageUrl = window.location.href; // بياخذ رابط الصفحة
-        const text = encodeURIComponent(`🧠 جربت هذا الاختبار الرائع: "${testName}" على موقع شخصيتك! جربه أنت كمان واكتشف نفسك من هنا:\n${pageUrl}`);
-        window.open(`https://wa.me/?text=${text}`, '_blank');
-    }
-</script>
-<!-- نهاية قسم المشاركة -->
-  <script>
-function completeTest() {
+        const text = encodeURIComponent(
+          `🧠 جربت هذا الاختبار الرائع: "${testName}" على موقع شخصيتك! جربه أنت كمان واكتشف نفسك من هنا:\n${pageUrl}`,
+        );
+        window.open(`https://wa.me/?text=${text}`, "_blank");
+      }
+    </script>
+    <!-- نهاية قسم المشاركة -->
+    <script>
+      function completeTest() {
+        // عدد الاختبارات
+        let completed = parseInt(localStorage.getItem("completedTests")) || 0;
 
-    // عدد الاختبارات
-    let completed = parseInt(localStorage.getItem("completedTests")) || 0;
+        completed++;
 
-    completed++;
+        localStorage.setItem("completedTests", completed);
 
-    localStorage.setItem("completedTests", completed);
+        // الستريك
+        let today = new Date().toDateString();
 
-    // الستريك
-    let today = new Date().toDateString();
+        let lastDate = localStorage.getItem("lastPlayDate");
 
-    let lastDate = localStorage.getItem("lastPlayDate");
+        let streak = parseInt(localStorage.getItem("streak")) || 0;
 
-    let streak = parseInt(localStorage.getItem("streak")) || 0;
+        let yesterday = new Date();
 
-    let yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
 
-    yesterday.setDate(yesterday.getDate() - 1);
-
-    if (lastDate !== today) {
-
-        if (lastDate === yesterday.toDateString()) {
+        if (lastDate !== today) {
+          if (lastDate === yesterday.toDateString()) {
             streak++;
-        } else {
+          } else {
             streak = 1;
-        }
+          }
 
-        localStorage.setItem("streak", streak);
-        localStorage.setItem("lastPlayDate", today);
-    }
-}
-</script>
+          localStorage.setItem("streak", streak);
+          localStorage.setItem("lastPlayDate", today);
+        }
+      }
+    </script>
   </body>
 </html>
