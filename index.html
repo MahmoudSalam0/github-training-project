@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>من أنت اليوم؟ | اختبار شخصية يومي</title>
-    <!-- قسم الإحصائيات -->
 
     <meta
       name="description"
@@ -46,7 +45,7 @@
       name="twitter:image"
       content="https://MahmoudSalam0.github.io/shahsiyatak/og-image.png"
     />
-    <!-- Open Graph Meta Tags -->
+    
     <meta property="og:title" content="شخصيتك - اختبارات شخصية يومية" />
     <meta
       property="og:description"
@@ -65,7 +64,7 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="شخصيتك - اختبارات شخصية" />
 
-    <!-- Twitter Card -->
+   
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="شخصيتك - اختبارات شخصية يومية" />
     <meta
@@ -104,7 +103,7 @@
     </script>
 
     <link rel="stylesheet" href="style.css" />
-    <!-- SEO & Schema -->
+    
     <link rel="canonical" href="https://mahmoudsalam0.github.io/shahsiyatak/" />
     <script type="application/ld+json">
       {
@@ -122,11 +121,9 @@
     </script>
   </head>
   <script>
-    /* =========================================
-   ✅ نظام الإحصائيات الموحد
-========================================= */
+ 
 
-    // إنشاء البيانات أول مرة
+    
     if (!localStorage.getItem("completedTests")) {
       localStorage.setItem("completedTests", "0");
     }
@@ -139,9 +136,7 @@
       localStorage.setItem("lastPlayDate", "");
     }
 
-    /* =========================================
-   ✅ تحديث الإحصائيات بالواجهة
-========================================= */
+    
 
     function updateStatsUI() {
       let completed = parseInt(localStorage.getItem("completedTests")) || 0;
@@ -159,19 +154,15 @@
       }
     }
 
-    /* =========================================
-   ✅ زيادة الإحصائيات بعد إنهاء اختبار
-========================================= */
+   
 
     function completeTest() {
-      // زيادة عدد الاختبارات
       let completed = parseInt(localStorage.getItem("completedTests")) || 0;
 
       completed++;
 
       localStorage.setItem("completedTests", completed);
 
-      // تحديث الستريك
       let today = new Date().toDateString();
 
       let lastDate = localStorage.getItem("lastPlayDate");
@@ -182,7 +173,6 @@
 
       yesterday.setDate(yesterday.getDate() - 1);
 
-      // إذا أول مرة اليوم
       if (lastDate !== today) {
         if (lastDate === yesterday.toDateString()) {
           streak++;
@@ -196,11 +186,6 @@
 
       updateStatsUI();
     }
-
-    /* =========================================
-   ✅ تحميل الإحصائيات عند فتح الموقع
-========================================= */
-
     document.addEventListener("DOMContentLoaded", () => {
       updateStatsUI();
     });
@@ -218,13 +203,10 @@
         </div>
         <div class="stat-card">
           <div class="stat-number">4</div>
-          <!-- غيّر الرقم حسب عدد اختباراتك -->
           <div class="stat-label">اختبارات متاحة</div>
         </div>
       </div>
-      <!-- ============================================ -->
-      <!-- ✅ صفحة الهبوط الرئيسية -->
-      <!-- ============================================ -->
+      
       <div id="landingPage" class="hero">
         <span class="hero-logo">🔮</span>
         <div class="hero-title">من أنت اليوم؟</div>
@@ -232,7 +214,6 @@
           اكتشف جانب جديد من شخصيتك كل يوم<br />اختبارات ممتعة تحلل شخصيتك بعمق
         </div>
 
-        <!-- اختبار اليوم -->
         <div class="today-card">
           <div class="today-badge">🎯 اختبار اليوم</div>
           <div class="today-theme" id="landingThemeName"></div>
@@ -277,11 +258,9 @@
 
         <div class="streak-box" id="landingStreak"></div>
 
-        <!-- قسم الاختبارات المتخصصة -->
         <div class="section-title">تحليلات عميقة</div>
 
         <div class="tests-grid">
-          <!-- اختبار الذكاء العاطفي -->
           <a
             href="eq-test.html"
             class="test-card card-eq"
@@ -301,7 +280,6 @@
             <div class="test-arrow">←</div>
           </a>
 
-          <!-- اختبار الوظيفة المناسبة -->
           <a
             href="job-test.html"
             class="test-card card-job"
@@ -321,7 +299,6 @@
             <div class="test-arrow">←</div>
           </a>
 
-          <!-- اختبار السمات الخمس الكبرى -->
           <a
             href="personality-test.html"
             class="test-card card-personality"
@@ -342,7 +319,6 @@
             <div class="test-arrow">←</div>
           </a>
 
-          <!-- اختبار الثقة بالنفس -->
           <a
             href="confidence-test.html"
             class="test-card card-confidence"
@@ -369,9 +345,7 @@
         </div>
       </div>
 
-      <!-- ============================================ -->
-      <!-- ✅ منطقة اللعبة اليومية -->
-      <!-- ============================================ -->
+      
       <div id="gameSection" class="game-section hidden">
         <button class="back-link" onclick="showLanding()">
           <span style="font-size: 22px">⬅️</span>
@@ -453,9 +427,7 @@
         </div>
       </div>
 
-      <!-- ============================================ -->
-      <!-- ✅ صفحة سياسة الخصوصية -->
-      <!-- ============================================ -->
+      
       <div id="privacyPage" class="inner-page hidden">
         <h1 style="color: #ff416c">🔒 سياسة الخصوصية</h1>
 
@@ -510,9 +482,7 @@
         </button>
       </div>
 
-      <!-- ============================================ -->
-      <!-- ✅ صفحة تواصل معنا -->
-      <!-- ============================================ -->
+      
       <div id="contactPage" class="inner-page hidden">
         <h1 style="color: #ff416c">💬 تواصل معنا</h1>
         <p style="color: #aaa; margin-bottom: 20px; line-height: 1.8">
